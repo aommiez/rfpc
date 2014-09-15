@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFMainViewController.h"
 
 @interface PFAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) PFMainViewController *mainViewControoler;
 @end
