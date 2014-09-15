@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		369ABEFB19C69BB1009F564F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFA19C69BB1009F564F /* Foundation.framework */; };
+		369ABEFD19C69BB1009F564F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFC19C69BB1009F564F /* CoreGraphics.framework */; };
+		369ABEFF19C69BB1009F564F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFE19C69BB1009F564F /* UIKit.framework */; };
+		369ABF0519C69BB1009F564F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 369ABF0319C69BB1009F564F /* InfoPlist.strings */; };
+		369ABF0719C69BB1009F564F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 369ABF0619C69BB1009F564F /* main.m */; };
+		369ABF0B19C69BB1009F564F /* PFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369ABF0A19C69BB1009F564F /* PFAppDelegate.m */; };
+		369ABF0D19C69BB2009F564F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 369ABF0C19C69BB2009F564F /* Images.xcassets */; };
+		369ABF1419C69BB2009F564F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABF1319C69BB2009F564F /* XCTest.framework */; };
+		369ABF1519C69BB2009F564F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFA19C69BB1009F564F /* Foundation.framework */; };
+		369ABF1619C69BB2009F564F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFE19C69BB1009F564F /* UIKit.framework */; };
+		369ABF1E19C69BB2009F564F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 369ABF1C19C69BB2009F564F /* InfoPlist.strings */; };
+		369ABF2019C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 369ABF1F19C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		369ABF1719C69BB2009F564F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 369ABEEF19C69BB1009F564F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 369ABEF619C69BB1009F564F;
+			remoteInfo = "Real Fish Prawn Crab";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		369ABEF719C69BB1009F564F /* Real Fish Prawn Crab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Fish Prawn Crab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		369ABEFA19C69BB1009F564F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		369ABEFC19C69BB1009F564F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		369ABEFE19C69BB1009F564F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		369ABF0219C69BB1009F564F /* Real Fish Prawn Crab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Real Fish Prawn Crab-Info.plist"; sourceTree = "<group>"; };
+		369ABF0419C69BB1009F564F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		369ABF0619C69BB1009F564F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		369ABF0819C69BB1009F564F /* Real Fish Prawn Crab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Real Fish Prawn Crab-Prefix.pch"; sourceTree = "<group>"; };
+		369ABF0919C69BB1009F564F /* PFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFAppDelegate.h; sourceTree = "<group>"; };
+		369ABF0A19C69BB1009F564F /* PFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFAppDelegate.m; sourceTree = "<group>"; };
+		369ABF0C19C69BB2009F564F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		369ABF1219C69BB2009F564F /* Real Fish Prawn CrabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Real Fish Prawn CrabTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		369ABF1319C69BB2009F564F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		369ABF1B19C69BB2009F564F /* Real Fish Prawn CrabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Real Fish Prawn CrabTests-Info.plist"; sourceTree = "<group>"; };
+		369ABF1D19C69BB2009F564F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		369ABF1F19C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Real_Fish_Prawn_CrabTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		369ABEF419C69BB1009F564F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABEFD19C69BB1009F564F /* CoreGraphics.framework in Frameworks */,
+				369ABEFF19C69BB1009F564F /* UIKit.framework in Frameworks */,
+				369ABEFB19C69BB1009F564F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369ABF0F19C69BB2009F564F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABF1419C69BB2009F564F /* XCTest.framework in Frameworks */,
+				369ABF1619C69BB2009F564F /* UIKit.framework in Frameworks */,
+				369ABF1519C69BB2009F564F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		369ABEEE19C69BB1009F564F = {
+			isa = PBXGroup;
+			children = (
+				369ABF0019C69BB1009F564F /* Real Fish Prawn Crab */,
+				369ABF1919C69BB2009F564F /* Real Fish Prawn CrabTests */,
+				369ABEF919C69BB1009F564F /* Frameworks */,
+				369ABEF819C69BB1009F564F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		369ABEF819C69BB1009F564F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				369ABEF719C69BB1009F564F /* Real Fish Prawn Crab.app */,
+				369ABF1219C69BB2009F564F /* Real Fish Prawn CrabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		369ABEF919C69BB1009F564F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				369ABEFA19C69BB1009F564F /* Foundation.framework */,
+				369ABEFC19C69BB1009F564F /* CoreGraphics.framework */,
+				369ABEFE19C69BB1009F564F /* UIKit.framework */,
+				369ABF1319C69BB2009F564F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		369ABF0019C69BB1009F564F /* Real Fish Prawn Crab */ = {
+			isa = PBXGroup;
+			children = (
+				369ABF0919C69BB1009F564F /* PFAppDelegate.h */,
+				369ABF0A19C69BB1009F564F /* PFAppDelegate.m */,
+				369ABF0C19C69BB2009F564F /* Images.xcassets */,
+				369ABF0119C69BB1009F564F /* Supporting Files */,
+			);
+			path = "Real Fish Prawn Crab";
+			sourceTree = "<group>";
+		};
+		369ABF0119C69BB1009F564F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				369ABF0219C69BB1009F564F /* Real Fish Prawn Crab-Info.plist */,
+				369ABF0319C69BB1009F564F /* InfoPlist.strings */,
+				369ABF0619C69BB1009F564F /* main.m */,
+				369ABF0819C69BB1009F564F /* Real Fish Prawn Crab-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		369ABF1919C69BB2009F564F /* Real Fish Prawn CrabTests */ = {
+			isa = PBXGroup;
+			children = (
+				369ABF1F19C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m */,
+				369ABF1A19C69BB2009F564F /* Supporting Files */,
+			);
+			path = "Real Fish Prawn CrabTests";
+			sourceTree = "<group>";
+		};
+		369ABF1A19C69BB2009F564F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				369ABF1B19C69BB2009F564F /* Real Fish Prawn CrabTests-Info.plist */,
+				369ABF1C19C69BB2009F564F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		369ABEF619C69BB1009F564F /* Real Fish Prawn Crab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369ABF2319C69BB2009F564F /* Build configuration list for PBXNativeTarget "Real Fish Prawn Crab" */;
+			buildPhases = (
+				369ABEF319C69BB1009F564F /* Sources */,
+				369ABEF419C69BB1009F564F /* Frameworks */,
+				369ABEF519C69BB1009F564F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Real Fish Prawn Crab";
+			productName = "Real Fish Prawn Crab";
+			productReference = 369ABEF719C69BB1009F564F /* Real Fish Prawn Crab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		369ABF1119C69BB2009F564F /* Real Fish Prawn CrabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369ABF2619C69BB2009F564F /* Build configuration list for PBXNativeTarget "Real Fish Prawn CrabTests" */;
+			buildPhases = (
+				369ABF0E19C69BB2009F564F /* Sources */,
+				369ABF0F19C69BB2009F564F /* Frameworks */,
+				369ABF1019C69BB2009F564F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				369ABF1819C69BB2009F564F /* PBXTargetDependency */,
+			);
+			name = "Real Fish Prawn CrabTests";
+			productName = "Real Fish Prawn CrabTests";
+			productReference = 369ABF1219C69BB2009F564F /* Real Fish Prawn CrabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		369ABEEF19C69BB1009F564F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "platwo fusion";
+				TargetAttributes = {
+					369ABF1119C69BB2009F564F = {
+						TestTargetID = 369ABEF619C69BB1009F564F;
+					};
+				};
+			};
+			buildConfigurationList = 369ABEF219C69BB1009F564F /* Build configuration list for PBXProject "Real Fish Prawn Crab" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 369ABEEE19C69BB1009F564F;
+			productRefGroup = 369ABEF819C69BB1009F564F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				369ABEF619C69BB1009F564F /* Real Fish Prawn Crab */,
+				369ABF1119C69BB2009F564F /* Real Fish Prawn CrabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		369ABEF519C69BB1009F564F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABF0519C69BB1009F564F /* InfoPlist.strings in Resources */,
+				369ABF0D19C69BB2009F564F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369ABF1019C69BB2009F564F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABF1E19C69BB2009F564F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		369ABEF319C69BB1009F564F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABF0B19C69BB1009F564F /* PFAppDelegate.m in Sources */,
+				369ABF0719C69BB1009F564F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369ABF0E19C69BB2009F564F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369ABF2019C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		369ABF1819C69BB2009F564F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 369ABEF619C69BB1009F564F /* Real Fish Prawn Crab */;
+			targetProxy = 369ABF1719C69BB2009F564F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		369ABF0319C69BB1009F564F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				369ABF0419C69BB1009F564F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		369ABF1C19C69BB2009F564F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				369ABF1D19C69BB2009F564F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		369ABF2119C69BB2009F564F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		369ABF2219C69BB2009F564F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		369ABF2419C69BB2009F564F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
+				INFOPLIST_FILE = "Real Fish Prawn Crab/Real Fish Prawn Crab-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		369ABF2519C69BB2009F564F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
+				INFOPLIST_FILE = "Real Fish Prawn Crab/Real Fish Prawn Crab-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		369ABF2719C69BB2009F564F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Real Fish Prawn Crab.app/Real Fish Prawn Crab";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Real Fish Prawn CrabTests/Real Fish Prawn CrabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		369ABF2819C69BB2009F564F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Real Fish Prawn Crab.app/Real Fish Prawn Crab";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
+				INFOPLIST_FILE = "Real Fish Prawn CrabTests/Real Fish Prawn CrabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		369ABEF219C69BB1009F564F /* Build configuration list for PBXProject "Real Fish Prawn Crab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369ABF2119C69BB2009F564F /* Debug */,
+				369ABF2219C69BB2009F564F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		369ABF2319C69BB2009F564F /* Build configuration list for PBXNativeTarget "Real Fish Prawn Crab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369ABF2419C69BB2009F564F /* Debug */,
+				369ABF2519C69BB2009F564F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		369ABF2619C69BB2009F564F /* Build configuration list for PBXNativeTarget "Real Fish Prawn CrabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369ABF2719C69BB2009F564F /* Debug */,
+				369ABF2819C69BB2009F564F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 369ABEEF19C69BB1009F564F /* Project object */;
+}
