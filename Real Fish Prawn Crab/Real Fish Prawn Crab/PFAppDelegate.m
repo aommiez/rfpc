@@ -13,9 +13,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.mainViewControoler = [[PFMainViewController alloc] initWithNibName:@"PFMainViewController_Wide" bundle:nil];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = self.mainViewControoler;
+    
+    self.mainViewControoler = [[PFMainViewController alloc] init];
+    
+    if (IS_WIDESCREEN) {
+        self.mainViewControoler = [[PFMainViewController alloc] initWithNibName:@"PFMainViewController_Wide" bundle:nil];
+        
+    } else {
+        self.mainViewControoler = [[PFMainViewController alloc] initWithNibName:@"PFMainViewController" bundle:nil];
+    }
+    
+    [self.window setRootViewController:self.mainViewControoler];
     [self.window makeKeyAndVisible];
     return YES;
 }

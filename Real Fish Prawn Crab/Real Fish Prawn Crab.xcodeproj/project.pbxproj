@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3696BA2619C6A7150024A496 /* PFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3696BA2419C6A7150024A496 /* PFMainViewController.m */; };
-		3696BA2719C6A7150024A496 /* PFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3696BA2519C6A7150024A496 /* PFMainViewController.xib */; };
 		3696BA2919C6A7620024A496 /* PFMainViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */; };
 		369ABEFB19C69BB1009F564F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFA19C69BB1009F564F /* Foundation.framework */; };
 		369ABEFD19C69BB1009F564F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFC19C69BB1009F564F /* CoreGraphics.framework */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		3696BA2319C6A7150024A496 /* PFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMainViewController.h; sourceTree = "<group>"; };
 		3696BA2419C6A7150024A496 /* PFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMainViewController.m; sourceTree = "<group>"; };
-		3696BA2519C6A7150024A496 /* PFMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController.xib; sourceTree = "<group>"; };
 		3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController_Wide.xib; sourceTree = "<group>"; };
 		369ABEF719C69BB1009F564F /* Real Fish Prawn Crab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Fish Prawn Crab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		369ABEFA19C69BB1009F564F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,7 +84,6 @@
 			children = (
 				3696BA2319C6A7150024A496 /* PFMainViewController.h */,
 				3696BA2419C6A7150024A496 /* PFMainViewController.m */,
-				3696BA2519C6A7150024A496 /* PFMainViewController.xib */,
 				3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */,
 			);
 			name = View;
@@ -242,7 +239,6 @@
 				3696BA2919C6A7620024A496 /* PFMainViewController_Wide.xib in Resources */,
 				369ABF0519C69BB1009F564F /* InfoPlist.strings in Resources */,
 				369ABF0D19C69BB2009F564F /* Images.xcassets in Resources */,
-				3696BA2719C6A7150024A496 /* PFMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

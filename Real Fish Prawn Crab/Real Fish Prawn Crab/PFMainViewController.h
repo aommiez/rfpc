@@ -10,4 +10,29 @@
 
 @interface PFMainViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *mainview1;
+@property (strong, nonatomic) IBOutlet UIView *mainview2;
+@property (strong, nonatomic) IBOutlet UIView *mainview3;
+@property (strong, nonatomic) IBOutlet UIView *mainview4;
+
+@property (strong, nonatomic) IBOutlet UIView *player1;
+@property (strong, nonatomic) IBOutlet UIView *player2;
+@property (strong, nonatomic) IBOutlet UIView *player3;
+@property (strong, nonatomic) IBOutlet UIView *player4;
+
+@property (strong, nonatomic) IBOutlet UIView *border1;
+@property (strong, nonatomic) IBOutlet UIView *border2;
+@property (strong, nonatomic) IBOutlet UIView *border3;
+@property (strong, nonatomic) IBOutlet UIView *border4;
+
+@property (strong, nonatomic) IBOutlet UIView *scoreTxt1;
+@property (strong, nonatomic) IBOutlet UIView *scoreTxt2;
+@property (strong, nonatomic) IBOutlet UIView *scoreTxt3;
+@property (strong, nonatomic) IBOutlet UIView *scoreTxt4;
+
+@property (strong, nonatomic) IBOutlet UIView *coinView1;
+@property (strong, nonatomic) IBOutlet UIView *coinView2;
+@property (strong, nonatomic) IBOutlet UIView *coinView3;
+@property (strong, nonatomic) IBOutlet UIView *coinView4;
+
 @end
