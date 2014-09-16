@@ -52,25 +52,25 @@
     [border1 setBorderColor:RGB(190, 29, 45).CGColor];
     [border1 setBorderWidth:2.0f];
     [border1 setMasksToBounds:YES];
-    [border1 setCornerRadius:3.0f];
+    [border1 setCornerRadius:5.0f];
     
     CALayer *border2 = [self.border2 layer];
     [border2 setBorderColor:RGB(28, 116, 188).CGColor];
     [border2 setBorderWidth:2.0f];
     [border2 setMasksToBounds:YES];
-    [border2 setCornerRadius:3.0f];
+    [border2 setCornerRadius:5.0f];
     
     CALayer *border3 = [self.border3 layer];
     [border3 setBorderColor:RGB(58, 181, 74).CGColor];
     [border3 setBorderWidth:2.0f];
     [border3 setMasksToBounds:YES];
-    [border3 setCornerRadius:3.0f];
+    [border3 setCornerRadius:5.0f];
     
     CALayer *border4 = [self.border4 layer];
     [border4 setBorderColor:RGB(248, 237, 50).CGColor];
     [border4 setBorderWidth:2.0f];
     [border4 setMasksToBounds:YES];
-    [border4 setCornerRadius:3.0f];
+    [border4 setCornerRadius:5.0f];
     
 }
 
