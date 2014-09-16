@@ -36,6 +36,18 @@
     [self.mainview3 addSubview:self.player3];
     [self.mainview4 addSubview:self.player4];
     
+    self.coinView1.frame = CGRectMake(0,70,self.coinView1.frame.size.width,self.coinView1.frame.size.height);
+    [self.mainview1 addSubview:self.coinView1];
+    
+    self.coinView2.frame = CGRectMake(0,70,self.coinView2.frame.size.width,self.coinView2.frame.size.height);
+    [self.mainview2 addSubview:self.coinView2];
+    
+    self.coinView3.frame = CGRectMake(0,70,self.coinView3.frame.size.width,self.coinView3.frame.size.height);
+    [self.mainview3 addSubview:self.coinView3];
+    
+    self.coinView4.frame = CGRectMake(0,70,self.coinView4.frame.size.width,self.coinView4.frame.size.height);
+    [self.mainview4 addSubview:self.coinView4];
+    
     CALayer *border1 = [self.border1 layer];
     [border1 setBorderColor:RGB(190, 29, 45).CGColor];
     [border1 setBorderWidth:2.0f];
@@ -71,10 +83,9 @@
     return YES;
 }
 
+//shake
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (UIEventSubtypeMotionShake) {
-        
-        NSLog(@"test %@",self.checkLog);
         
         if (self.checkLog.length == 0) {
             int number1 = (arc4random()%6)+1; //Generates Number from 1 to 100.
@@ -88,11 +99,8 @@
             int number3 = (arc4random()%6)+1; //Generates Number from 1 to 100.
             NSString *string3 = [NSString stringWithFormat:@"%i", number3];
             self.dice3 = string3;
-            
-            NSLog(@"if");
 
         } else {
-            NSLog(@"else");
             
             if ([self.checkLog isEqualToString:@"1"]) {
                 self.dice1 = @"2"; self.dice2 = @"3"; self.dice3 = @"4";
@@ -157,10 +165,11 @@
             }
         }
         
-        NSLog(@"%@ %@ %@",self.dice1,self.dice2,self.dice3);
+        //NSLog(@"%@ %@ %@",self.dice1,self.dice2,self.dice3);
     }
 }
 
+//open
 - (IBAction)diceTapped:(id)sender {
     
     if ([self.dice1 isEqualToString:@"1"]) {
@@ -214,13 +223,13 @@
                       otherButtonTitles:nil] show];
 }
 
+//Lock
 - (IBAction)LogdiceTapped:(id)sender {
     if (self.checkLog.length == 0) {
         self.checkLog = @"1";
     } else {
         self.checkLog = @"";
     }
-    NSLog(@"sum %@",self.checkLog);
 }
 
 @end
