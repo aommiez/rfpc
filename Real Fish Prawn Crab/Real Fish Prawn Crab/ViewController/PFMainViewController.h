@@ -10,6 +10,19 @@
 
 @interface PFMainViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet NSString *dice1;
+@property (strong, nonatomic) IBOutlet NSString *dice2;
+@property (strong, nonatomic) IBOutlet NSString *dice3;
+
+@property (strong, nonatomic) IBOutlet NSString *showdice1;
+@property (strong, nonatomic) IBOutlet NSString *showdice2;
+@property (strong, nonatomic) IBOutlet NSString *showdice3;
+
+@property (strong, nonatomic) IBOutlet NSString *checkLog;
+
+- (IBAction)diceTapped:(id)sender;
+- (IBAction)LogdiceTapped:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIView *mainview1;
 @property (strong, nonatomic) IBOutlet UIView *mainview2;
 @property (strong, nonatomic) IBOutlet UIView *mainview3;

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3696BA2619C6A7150024A496 /* PFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3696BA2419C6A7150024A496 /* PFMainViewController.m */; };
-		3696BA2919C6A7620024A496 /* PFMainViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */; };
 		369ABEFB19C69BB1009F564F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFA19C69BB1009F564F /* Foundation.framework */; };
 		369ABEFD19C69BB1009F564F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFC19C69BB1009F564F /* CoreGraphics.framework */; };
 		369ABEFF19C69BB1009F564F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFE19C69BB1009F564F /* UIKit.framework */; };
@@ -21,6 +19,8 @@
 		369ABF1619C69BB2009F564F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ABEFE19C69BB1009F564F /* UIKit.framework */; };
 		369ABF1E19C69BB2009F564F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 369ABF1C19C69BB2009F564F /* InfoPlist.strings */; };
 		369ABF2019C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 369ABF1F19C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m */; };
+		5220029419C8797000B44480 /* PFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5220029219C8797000B44480 /* PFMainViewController.m */; };
+		5220029519C8797000B44480 /* PFMainViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5220029319C8797000B44480 /* PFMainViewController_Wide.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3696BA2319C6A7150024A496 /* PFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMainViewController.h; sourceTree = "<group>"; };
-		3696BA2419C6A7150024A496 /* PFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMainViewController.m; sourceTree = "<group>"; };
-		3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController_Wide.xib; sourceTree = "<group>"; };
 		369ABEF719C69BB1009F564F /* Real Fish Prawn Crab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Fish Prawn Crab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		369ABEFA19C69BB1009F564F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		369ABEFC19C69BB1009F564F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +50,9 @@
 		369ABF1B19C69BB2009F564F /* Real Fish Prawn CrabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Real Fish Prawn CrabTests-Info.plist"; sourceTree = "<group>"; };
 		369ABF1D19C69BB2009F564F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		369ABF1F19C69BB2009F564F /* Real_Fish_Prawn_CrabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Real_Fish_Prawn_CrabTests.m; sourceTree = "<group>"; };
+		5220029119C8797000B44480 /* PFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMainViewController.h; sourceTree = "<group>"; };
+		5220029219C8797000B44480 /* PFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMainViewController.m; sourceTree = "<group>"; };
+		5220029319C8797000B44480 /* PFMainViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController_Wide.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +82,7 @@
 		3696BA2219C6A6FB0024A496 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3696BA2319C6A7150024A496 /* PFMainViewController.h */,
-				3696BA2419C6A7150024A496 /* PFMainViewController.m */,
-				3696BA2819C6A7620024A496 /* PFMainViewController_Wide.xib */,
+				5220028F19C8797000B44480 /* ViewController */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -158,6 +156,24 @@
 				369ABF1C19C69BB2009F564F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5220028F19C8797000B44480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5220029019C8797000B44480 /* Image */,
+				5220029119C8797000B44480 /* PFMainViewController.h */,
+				5220029219C8797000B44480 /* PFMainViewController.m */,
+				5220029319C8797000B44480 /* PFMainViewController_Wide.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5220029019C8797000B44480 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +252,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3696BA2919C6A7620024A496 /* PFMainViewController_Wide.xib in Resources */,
 				369ABF0519C69BB1009F564F /* InfoPlist.strings in Resources */,
 				369ABF0D19C69BB2009F564F /* Images.xcassets in Resources */,
+				5220029519C8797000B44480 /* PFMainViewController_Wide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3696BA2619C6A7150024A496 /* PFMainViewController.m in Sources */,
+				5220029419C8797000B44480 /* PFMainViewController.m in Sources */,
 				369ABF0B19C69BB1009F564F /* PFAppDelegate.m in Sources */,
 				369ABF0719C69BB1009F564F /* main.m in Sources */,
 			);
