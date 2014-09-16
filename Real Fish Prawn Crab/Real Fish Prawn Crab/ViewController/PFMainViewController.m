@@ -218,7 +218,7 @@
     if (self.checkLog.length == 0) {
         self.checkLog = @"1";
     } else {
-        self.checkLog = @" ";
+        self.checkLog = @"";
     }
     NSLog(@"sum %@",self.checkLog);
 }
