@@ -82,6 +82,7 @@
 		5286E25219C9EEC8001668E2 /* select_borad_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24619C9EEC8001668E2 /* select_borad_4.png */; };
 		5286E25319C9EEC8001668E2 /* select_borad_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24719C9EEC8001668E2 /* select_borad_5.png */; };
 		5286E25419C9EEC8001668E2 /* select_borad_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24819C9EEC8001668E2 /* select_borad_6.png */; };
+		5286E25619C9F37D001668E2 /* PFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5286E25519C9F37D001668E2 /* PFMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		5286E24619C9EEC8001668E2 /* select_borad_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_4.png; sourceTree = "<group>"; };
 		5286E24719C9EEC8001668E2 /* select_borad_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_5.png; sourceTree = "<group>"; };
 		5286E24819C9EEC8001668E2 /* select_borad_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_6.png; sourceTree = "<group>"; };
+		5286E25519C9F37D001668E2 /* PFMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				5220029119C8797000B44480 /* PFMainViewController.h */,
 				5220029219C8797000B44480 /* PFMainViewController.m */,
 				5220029319C8797000B44480 /* PFMainViewController_Wide.xib */,
+				5286E25519C9F37D001668E2 /* PFMainViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				5286E24E19C9EEC8001668E2 /* borad_6.png in Resources */,
 				5286E23C19C9E392001668E2 /* dice_6.png in Resources */,
 				5218130819C9263B005A7D71 /* bg_board.png in Resources */,
+				5286E25619C9F37D001668E2 /* PFMainViewController.xib in Resources */,
 				522002E219C89F0300B44480 /* select_yellow_coin_01.png in Resources */,
 				522002CC19C89F0300B44480 /* blue_coin_50.png in Resources */,
 				5286E24919C9EEC8001668E2 /* borad_1.png in Resources */,
