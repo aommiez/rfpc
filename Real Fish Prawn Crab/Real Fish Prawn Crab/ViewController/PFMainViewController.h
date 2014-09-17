@@ -10,6 +10,15 @@
 
 @interface PFMainViewController : UIViewController
 
+//image board
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg1;
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg2;
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg3;
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg4;
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg5;
+@property (strong, nonatomic) IBOutlet UIImageView *boardImg6;
+
+//
 @property (strong, nonatomic) IBOutlet NSString *dice1;
 @property (strong, nonatomic) IBOutlet NSString *dice2;
 @property (strong, nonatomic) IBOutlet NSString *dice3;
