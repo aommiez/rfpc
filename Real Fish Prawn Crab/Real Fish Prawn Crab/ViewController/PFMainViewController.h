@@ -23,6 +23,8 @@
 - (IBAction)diceTapped:(id)sender;
 - (IBAction)LogdiceTapped:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIImageView *coinLock;
+
 @property (strong, nonatomic) IBOutlet UIView *mainview1;
 @property (strong, nonatomic) IBOutlet UIView *mainview2;
 @property (strong, nonatomic) IBOutlet UIView *mainview3;

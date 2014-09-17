@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    self.coinLock.image = [UIImage imageNamed:@"coin_off.png"];
+    
     [self.mainview1 addSubview:self.player1];
     [self.mainview2 addSubview:self.player2];
     [self.mainview3 addSubview:self.player3];
@@ -227,8 +229,10 @@
 - (IBAction)LogdiceTapped:(id)sender {
     if (self.checkLog.length == 0) {
         self.checkLog = @"1";
+self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     } else {
         self.checkLog = @"";
+        self.coinLock.image = [UIImage imageNamed:@"coin_off.png"];
     }
 }
 
