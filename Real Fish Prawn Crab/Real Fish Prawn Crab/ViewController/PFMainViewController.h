@@ -25,29 +25,26 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *coinLock;
 
-@property (strong, nonatomic) IBOutlet UIView *mainview1;
-@property (strong, nonatomic) IBOutlet UIView *mainview2;
-@property (strong, nonatomic) IBOutlet UIView *mainview3;
-@property (strong, nonatomic) IBOutlet UIView *mainview4;
-
-@property (strong, nonatomic) IBOutlet UIView *player1;
-@property (strong, nonatomic) IBOutlet UIView *player2;
-@property (strong, nonatomic) IBOutlet UIView *player3;
-@property (strong, nonatomic) IBOutlet UIView *player4;
-
 @property (strong, nonatomic) IBOutlet UIView *border1;
 @property (strong, nonatomic) IBOutlet UIView *border2;
 @property (strong, nonatomic) IBOutlet UIView *border3;
 @property (strong, nonatomic) IBOutlet UIView *border4;
 
-@property (strong, nonatomic) IBOutlet UIView *scoreTxt1;
-@property (strong, nonatomic) IBOutlet UIView *scoreTxt2;
-@property (strong, nonatomic) IBOutlet UIView *scoreTxt3;
-@property (strong, nonatomic) IBOutlet UIView *scoreTxt4;
+//เขย่า
+@property (strong, nonatomic) IBOutlet UIView *shakeView;
+- (IBAction)closeshakeTapped:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UIView *coinView1;
-@property (strong, nonatomic) IBOutlet UIView *coinView2;
-@property (strong, nonatomic) IBOutlet UIView *coinView3;
-@property (strong, nonatomic) IBOutlet UIView *coinView4;
+@property (strong, nonatomic) IBOutlet NSString *checkshake;
+
+//เดิมพัน
+@property (strong, nonatomic) IBOutlet UIView *gambleView;
+- (IBAction)gambleTapped:(id)sender;
+
+//ดูผลลัพธ์
+@property (strong, nonatomic) IBOutlet UIView *resultView;
+@property (strong, nonatomic) IBOutlet UIImageView *diceImg1;
+@property (strong, nonatomic) IBOutlet UIImageView *diceImg2;
+@property (strong, nonatomic) IBOutlet UIImageView *diceImg3;
+- (IBAction)resultTapped:(id)sender;
 
 @end
