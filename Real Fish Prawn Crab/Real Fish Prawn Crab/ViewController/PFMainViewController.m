@@ -175,8 +175,6 @@
                 self.boardImg6.image = [UIImage imageNamed:@"borad_6.png"];
                 
             }
-            
-            NSLog(@"%@ %@ %@",self.dice1,self.dice2,self.dice3);
         }
     }
 }
@@ -204,6 +202,27 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     if ([self.checkshake isEqualToString:@"shake"]) {
         [self.shakeView removeFromSuperview];
         [self.view addSubview:self.gambleView];
+        
+        [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+        [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+        [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+        [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+        
+        [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+        [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+        [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+        [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+        
+        [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+        [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+        [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+        [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+        
+        [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+        [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+        [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+        [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+        
     } else {
         [[[UIAlertView alloc] initWithTitle:nil
                                     message:@"Please shake again."
@@ -212,6 +231,1686 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
                           otherButtonTitles:nil] show];
     }
 }
+
+//board gamble
+
+- (IBAction)boardBt1Tapped:(id)sender {
+    
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board1Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board1Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board1Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board1Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board1Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board1Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board1Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board1Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board1Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board1Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board1Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board1Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board1Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board1Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board1Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board1Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board1Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board1Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board1Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board1Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board1Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board1Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board1Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board1Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board1Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board1Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board1Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board1Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board1Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board1Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board1Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board1Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board1Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board1Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board1Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board1Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board1Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board1Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board1Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board1Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board1Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board1Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board1Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board1Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board1Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board1Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board1Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board1Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board1Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+}
+
+- (IBAction)boardBt2Tapped:(id)sender {
+    
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board2Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board2Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board2Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board2Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board2Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board2Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board2Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board2Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board2Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board2Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board2Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board2Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board2Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board2Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board2Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board2Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board2Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board2Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board2Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board2Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board2Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board2Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board2Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board2Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board2Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board2Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board2Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board2Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board2Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board2Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board2Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board2Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board2Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board2Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board2Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board2Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board2Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board2Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board2Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board2Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board2Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board2Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board2Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board2Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board2Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board2Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board2Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board2Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board2Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+}
+
+- (IBAction)boardBt3Tapped:(id)sender {
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board3Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board3Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board3Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board3Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board3Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board3Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board3Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board3Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board3Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board3Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board3Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board3Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board3Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board3Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board3Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board3Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board3Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board3Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board3Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board3Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board3Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board3Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board3Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board3Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board3Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board3Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board3Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board3Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board3Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board3Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board3Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board3Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board3Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board3Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board3Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board3Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board3Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board3Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board3Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board3Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board3Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board3Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board3Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board3Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board3Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board3Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board3Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board3Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board3Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+
+}
+
+- (IBAction)boardBt4Tapped:(id)sender {
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board4Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board4Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board4Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board4Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board4Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board4Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board4Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board4Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board4Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board4Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board4Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board4Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board4Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board4Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board4Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board4Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board4Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board4Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board4Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board4Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board4Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board4Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board4Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board4Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board4Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board4Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board4Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board4Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board4Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board4Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board4Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board4Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board4Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board4Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board4Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board4Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board4Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board4Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board4Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board4Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board4Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board4Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board4Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board4Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board4Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board4Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board4Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board4Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board4Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+
+}
+
+- (IBAction)boardBt5Tapped:(id)sender {
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board5Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board5Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board5Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board5Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board5Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board5Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board5Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board5Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board5Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board5Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board5Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board5Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board5Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board5Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board5Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board5Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board5Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board5Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board5Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board5Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board5Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board5Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board5Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board5Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board5Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board5Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board5Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board5Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board5Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board5Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board5Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board5Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board5Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board5Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board5Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board5Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board5Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board5Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board5Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board5Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board5Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board5Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board5Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board5Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board5Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board5Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board5Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board5Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board5Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+
+}
+
+- (IBAction)boardBt6Tapped:(id)sender {
+    //player1
+    if ([self.playercheck isEqualToString:@"player1coin50"]) {
+        if ([self.board6Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board6Txt1.text = @"50";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt1.text.intValue + 50;
+            int totalbet = self.totalbet1.text.intValue + 50;
+            self.board6Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin10"]) {
+        if ([self.board6Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board6Txt1.text = @"10";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt1.text.intValue + 10;
+            int totalbet = self.totalbet1.text.intValue + 10;
+            self.board6Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin5"]) {
+        if ([self.board6Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board6Txt1.text = @"5";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt1.text.intValue + 5;
+            int totalbet = self.totalbet1.text.intValue + 5;
+            self.board6Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player1coin1"]) {
+        if ([self.board6Txt1.text isEqualToString:@""]) {
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board6Txt1.text = @"1";
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt1.text.intValue + 1;
+            int totalbet = self.totalbet1.text.intValue + 1;
+            self.board6Txt1.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet1.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player2
+    if ([self.playercheck isEqualToString:@"player2coin50"]) {
+        if ([self.board6Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board6Txt2.text = @"50";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt2.text.intValue + 50;
+            int totalbet = self.totalbet2.text.intValue + 50;
+            self.board6Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin10"]) {
+        if ([self.board6Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board6Txt2.text = @"10";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt2.text.intValue + 10;
+            int totalbet = self.totalbet2.text.intValue + 10;
+            self.board6Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin5"]) {
+        if ([self.board6Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board6Txt2.text = @"5";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt2.text.intValue + 5;
+            int totalbet = self.totalbet2.text.intValue + 5;
+            self.board6Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player2coin1"]) {
+        if ([self.board6Txt2.text isEqualToString:@""]) {
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board6Txt2.text = @"1";
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt2.text.intValue + 1;
+            int totalbet = self.totalbet2.text.intValue + 1;
+            self.board6Txt2.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet2.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player3
+    if ([self.playercheck isEqualToString:@"player3coin50"]) {
+        if ([self.board6Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board6Txt3.text = @"50";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt3.text.intValue + 50;
+            int totalbet = self.totalbet3.text.intValue + 50;
+            self.board6Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin10"]) {
+        if ([self.board6Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board6Txt3.text = @"10";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt3.text.intValue + 10;
+            int totalbet = self.totalbet3.text.intValue + 10;
+            self.board6Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin5"]) {
+        if ([self.board6Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board6Txt3.text = @"5";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt3.text.intValue + 5;
+            int totalbet = self.totalbet3.text.intValue + 5;
+            self.board6Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player3coin1"]) {
+        if ([self.board6Txt3.text isEqualToString:@""]) {
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board6Txt3.text = @"1";
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt3.text.intValue + 1;
+            int totalbet = self.totalbet3.text.intValue + 1;
+            self.board6Txt3.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet3.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+    //player4
+    if ([self.playercheck isEqualToString:@"player4coin50"]) {
+        if ([self.board6Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board6Txt4.text = @"50";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt4.text.intValue + 50;
+            int totalbet = self.totalbet4.text.intValue + 50;
+            self.board6Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin10"]) {
+        if ([self.board6Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board6Txt4.text = @"10";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt4.text.intValue + 10;
+            int totalbet = self.totalbet4.text.intValue + 10;
+            self.board6Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin5"]) {
+        if ([self.board6Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board6Txt4.text = @"5";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt4.text.intValue + 5;
+            int totalbet = self.totalbet4.text.intValue + 5;
+            self.board6Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    if ([self.playercheck isEqualToString:@"player4coin1"]) {
+        if ([self.board6Txt4.text isEqualToString:@""]) {
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board6Txt4.text = @"1";
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        } else {
+            int sum1 = self.board6Txt4.text.intValue + 1;
+            int totalbet = self.totalbet4.text.intValue + 1;
+            self.board6Txt4.text = [NSString stringWithFormat:@"%i",sum1];
+            self.totalbet4.text = [NSString stringWithFormat:@"%i",totalbet];
+        }
+    }
+    
+}
+
+//clear player1
+
+- (IBAction)clear1Tapped:(id)sender {
+    self.totalbet1.text = @"0";
+    self.board1Txt1.text = @"";
+    self.board2Txt1.text = @"";
+    self.board3Txt1.text = @"";
+    self.board4Txt1.text = @"";
+    self.board5Txt1.text = @"";
+    self.board6Txt1.text = @"";
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+}
+
+//clear player2
+
+- (IBAction)clear2Tapped:(id)sender {
+    self.totalbet2.text = @"0";
+    self.board1Txt2.text = @"";
+    self.board2Txt2.text = @"";
+    self.board3Txt2.text = @"";
+    self.board4Txt2.text = @"";
+    self.board5Txt2.text = @"";
+    self.board6Txt2.text = @"";
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+}
+
+//clear player3
+
+- (IBAction)clear3Tapped:(id)sender {
+    self.totalbet3.text = @"0";
+    self.board1Txt3.text = @"";
+    self.board2Txt3.text = @"";
+    self.board3Txt3.text = @"";
+    self.board4Txt3.text = @"";
+    self.board5Txt3.text = @"";
+    self.board6Txt3.text = @"";
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+}
+
+//clear player4
+
+- (IBAction)clear4Tapped:(id)sender {
+    self.totalbet4.text = @"0";
+    self.board1Txt4.text = @"";
+    self.board2Txt4.text = @"";
+    self.board3Txt4.text = @"";
+    self.board4Txt4.text = @"";
+    self.board5Txt4.text = @"";
+    self.board6Txt4.text = @"";
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+}
+
+//coin gamble player1
+
+- (IBAction)coin501Tapped:(id)sender {
+    [self.coin501 setImage:[UIImage imageNamed:@"select_red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player1coin50";
+}
+
+- (IBAction)coin101Tapped:(id)sender {
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"select_red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player1coin10";
+}
+
+- (IBAction)coin51Tapped:(id)sender {
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"select_red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player1coin5";
+}
+
+- (IBAction)coin11Tapped:(id)sender {
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"select_red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player1coin1";
+}
+
+//coin gamble player2
+
+- (IBAction)coin502Tapped:(id)sender {
+    [self.coin502 setImage:[UIImage imageNamed:@"select_blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player2coin50";
+}
+
+- (IBAction)coin102Tapped:(id)sender {
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"select_blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player2coin10";
+}
+
+- (IBAction)coin52Tapped:(id)sender {
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"select_blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player2coin5";
+}
+
+- (IBAction)coin12Tapped:(id)sender {
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"select_blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player2coin1";
+}
+
+//coin gamble player3
+
+- (IBAction)coin503Tapped:(id)sender {
+    [self.coin503 setImage:[UIImage imageNamed:@"select_green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player3coin50";
+}
+
+- (IBAction)coin103Tapped:(id)sender {
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"select_green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player3coin10";
+}
+
+- (IBAction)coin53Tapped:(id)sender {
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"select_green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player3coin5";
+}
+
+- (IBAction)coin13Tapped:(id)sender {
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"select_green_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player3coin1";
+}
+
+//coin gamble player4
+
+- (IBAction)coin504Tapped:(id)sender {
+    [self.coin504 setImage:[UIImage imageNamed:@"select_yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player4coin50";
+}
+
+- (IBAction)coin104Tapped:(id)sender {
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"select_yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player4coin10";
+}
+
+- (IBAction)coin54Tapped:(id)sender {
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"select_yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player4coin5";
+}
+
+- (IBAction)coin14Tapped:(id)sender {
+    [self.coin504 setImage:[UIImage imageNamed:@"yellow_coin_50"] forState:UIControlStateNormal];
+    [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
+    [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
+    [self.coin14 setImage:[UIImage imageNamed:@"select_yellow_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
+    [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
+    [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
+    [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin502 setImage:[UIImage imageNamed:@"blue_coin_50"] forState:UIControlStateNormal];
+    [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
+    [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
+    [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    
+    [self.coin503 setImage:[UIImage imageNamed:@"green_coin_50"] forState:UIControlStateNormal];
+    [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
+    [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
+    [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    
+    self.playercheck = @"player4coin1";
+}
+
+//gamble
 
 - (IBAction)gambleTapped:(id)sender {
     [self.gambleView removeFromSuperview];
@@ -306,6 +2005,8 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     } else if ([self.dice3 isEqualToString:@"6"]) {
         self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
     }
+    
+    
 }
 
 @end
