@@ -57,12 +57,14 @@
 - (IBAction)resultTapped:(id)sender;
 
 //button board
+/*
 @property (strong, nonatomic) IBOutlet UILabel *coin1Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *coin2Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *coin3Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *coin4Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *coin5Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *coin6Txt1;
+ */
 
 - (IBAction)boardBt1Tapped:(id)sender;
 - (IBAction)boardBt2Tapped:(id)sender;
@@ -75,6 +77,8 @@
 @property (strong, nonatomic) IBOutlet NSString *playercheck;
 
 //player1
+@property (strong, nonatomic) IBOutlet NSString *player1sum;
+
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *board3Txt1;
@@ -102,6 +106,8 @@
 - (IBAction)coin11Tapped:(id)sender;
 
 //player2
+@property (strong, nonatomic) IBOutlet NSString *player2sum;
+
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt2;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt2;
 @property (strong, nonatomic) IBOutlet UILabel *board3Txt2;
@@ -129,6 +135,8 @@
 - (IBAction)coin12Tapped:(id)sender;
 
 //player3
+@property (strong, nonatomic) IBOutlet NSString *player3sum;
+
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt3;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt3;
 @property (strong, nonatomic) IBOutlet UILabel *board3Txt3;
@@ -156,6 +164,8 @@
 - (IBAction)coin13Tapped:(id)sender;
 
 //player4
+@property (strong, nonatomic) IBOutlet NSString *player4sum;
+
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt4;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt4;
 @property (strong, nonatomic) IBOutlet UILabel *board3Txt4;
@@ -181,5 +191,11 @@
 - (IBAction)coin104Tapped:(id)sender;
 - (IBAction)coin54Tapped:(id)sender;
 - (IBAction)coin14Tapped:(id)sender;
+
+//dealer
+@property (strong, nonatomic) IBOutlet NSString *dealersum;
+
+@property (strong, nonatomic) IBOutlet UILabel *dealerbalance;
+
 
 @end

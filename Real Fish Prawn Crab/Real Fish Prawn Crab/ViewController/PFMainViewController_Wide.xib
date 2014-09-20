@@ -65,6 +65,7 @@
                 <outlet property="coin53" destination="r7E-UO-W1h" id="YUp-3q-t5V"/>
                 <outlet property="coin54" destination="2BQ-PH-vSR" id="hxw-Xb-CIn"/>
                 <outlet property="coinLock" destination="971-p7-I6E" id="Xjx-UO-9fa"/>
+                <outlet property="dealerbalance" destination="yo2-2G-F8q" id="gga-kq-wYX"/>
                 <outlet property="diceImg1" destination="UkW-28-pHF" id="j0T-Y0-CYZ"/>
                 <outlet property="diceImg2" destination="VJ0-Ub-fpr" id="UKn-Ch-Nu5"/>
                 <outlet property="diceImg3" destination="dxz-dy-xMN" id="MLU-LW-eZB"/>
@@ -108,6 +109,12 @@
                             <rect key="frame" x="80" y="0.0" width="160" height="91"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yo2-2G-F8q">
+                            <rect key="frame" x="90" y="40" width="60" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1ku-Lt-6ex">
                             <rect key="frame" x="240" y="0.0" width="80" height="91"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,6 +497,12 @@
                             <rect key="frame" x="80" y="0.0" width="160" height="91"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sh0-xG-wXl">
+                            <rect key="frame" x="90" y="40" width="60" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JBc-Gn-IhV">
                             <rect key="frame" x="0.0" y="0.0" width="80" height="91"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
