@@ -82,6 +82,10 @@
 		5286E25219C9EEC8001668E2 /* select_borad_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24619C9EEC8001668E2 /* select_borad_4.png */; };
 		5286E25319C9EEC8001668E2 /* select_borad_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24719C9EEC8001668E2 /* select_borad_5.png */; };
 		5286E25419C9EEC8001668E2 /* select_borad_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5286E24819C9EEC8001668E2 /* select_borad_6.png */; };
+		52A1E7F119CF2CE9002563C1 /* bg_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A1E7F019CF2CE9002563C1 /* bg_loading.png */; };
+		52A1E82519CF2DA1002563C1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A1E82419CF2DA1002563C1 /* LaunchScreen.xib */; };
+		52A1E82819CF3008002563C1 /* gamesound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52A1E82719CF3008002563C1 /* gamesound.mp3 */; };
+		52A1E82A19CF303A002563C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A1E82919CF303A002563C1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +179,10 @@
 		5286E24619C9EEC8001668E2 /* select_borad_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_4.png; sourceTree = "<group>"; };
 		5286E24719C9EEC8001668E2 /* select_borad_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_5.png; sourceTree = "<group>"; };
 		5286E24819C9EEC8001668E2 /* select_borad_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_borad_6.png; sourceTree = "<group>"; };
+		52A1E7F019CF2CE9002563C1 /* bg_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_loading.png; sourceTree = "<group>"; };
+		52A1E82419CF2DA1002563C1 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ViewController/LaunchScreen.xib; sourceTree = "<group>"; };
+		52A1E82719CF3008002563C1 /* gamesound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamesound.mp3; sourceTree = "<group>"; };
+		52A1E82919CF303A002563C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A1E82A19CF303A002563C1 /* AVFoundation.framework in Frameworks */,
 				369ABEFD19C69BB1009F564F /* CoreGraphics.framework in Frameworks */,
 				369ABEFF19C69BB1009F564F /* UIKit.framework in Frameworks */,
 				369ABEFB19C69BB1009F564F /* Foundation.framework in Frameworks */,
@@ -231,6 +240,7 @@
 		369ABEF919C69BB1009F564F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52A1E82919CF303A002563C1 /* AVFoundation.framework */,
 				369ABEFA19C69BB1009F564F /* Foundation.framework */,
 				369ABEFC19C69BB1009F564F /* CoreGraphics.framework */,
 				369ABEFE19C69BB1009F564F /* UIKit.framework */,
@@ -246,6 +256,7 @@
 				369ABF0919C69BB1009F564F /* PFAppDelegate.h */,
 				369ABF0A19C69BB1009F564F /* PFAppDelegate.m */,
 				369ABF0C19C69BB2009F564F /* Images.xcassets */,
+				52A1E82419CF2DA1002563C1 /* LaunchScreen.xib */,
 				369ABF0119C69BB1009F564F /* Supporting Files */,
 			);
 			path = "Real Fish Prawn Crab";
@@ -283,6 +294,7 @@
 		5220028F19C8797000B44480 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				52A1E82619CF2FFD002563C1 /* Audio */,
 				5220029019C8797000B44480 /* Image */,
 				5220029119C8797000B44480 /* PFMainViewController.h */,
 				5220029219C8797000B44480 /* PFMainViewController.m */,
@@ -294,6 +306,7 @@
 		5220029019C8797000B44480 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				52A1E7F019CF2CE9002563C1 /* bg_loading.png */,
 				5286E22F19C9DD74001668E2 /* bg-dish.png */,
 				5286E22D19C9CCF2001668E2 /* bg_shake.png */,
 				5286E1C619C953EC001668E2 /* coin_off.png */,
@@ -423,6 +436,14 @@
 			path = cup;
 			sourceTree = "<group>";
 		};
+		52A1E82619CF2FFD002563C1 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				52A1E82719CF3008002563C1 /* gamesound.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +525,7 @@
 				5286E25019C9EEC8001668E2 /* select_borad_2.png in Resources */,
 				522002DB19C89F0300B44480 /* red_coin_05.png in Resources */,
 				522002D319C89F0300B44480 /* green_coin_05.png in Resources */,
+				52A1E82519CF2DA1002563C1 /* LaunchScreen.xib in Resources */,
 				5286E24A19C9EEC8001668E2 /* borad_2.png in Resources */,
 				369ABF0519C69BB1009F564F /* InfoPlist.strings in Resources */,
 				522002D419C89F0300B44480 /* green_coin_10.png in Resources */,
@@ -545,8 +567,10 @@
 				522002E219C89F0300B44480 /* select_yellow_coin_01.png in Resources */,
 				522002CC19C89F0300B44480 /* blue_coin_50.png in Resources */,
 				5286E24919C9EEC8001668E2 /* borad_1.png in Resources */,
+				52A1E7F119CF2CE9002563C1 /* bg_loading.png in Resources */,
 				522002D819C89F0300B44480 /* select_green_coin_10.png in Resources */,
 				522002E719C89F0300B44480 /* yellow_coin_05.png in Resources */,
+				52A1E82819CF3008002563C1 /* gamesound.mp3 in Resources */,
 				522002E019C89F0300B44480 /* select_red_coin_10.png in Resources */,
 				5286E23819C9E391001668E2 /* dice_2.png in Resources */,
 				522002E119C89F0300B44480 /* select_red_coin_50.png in Resources */,

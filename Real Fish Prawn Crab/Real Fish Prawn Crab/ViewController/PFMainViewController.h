@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface PFMainViewController : UIViewController
+@interface PFMainViewController : UIViewController <AVAudioPlayerDelegate>
+
+//audio
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 //image board
 @property (strong, nonatomic) IBOutlet UIImageView *boardImg1;
@@ -57,15 +61,6 @@
 - (IBAction)resultTapped:(id)sender;
 
 //button board
-/*
-@property (strong, nonatomic) IBOutlet UILabel *coin1Txt1;
-@property (strong, nonatomic) IBOutlet UILabel *coin2Txt1;
-@property (strong, nonatomic) IBOutlet UILabel *coin3Txt1;
-@property (strong, nonatomic) IBOutlet UILabel *coin4Txt1;
-@property (strong, nonatomic) IBOutlet UILabel *coin5Txt1;
-@property (strong, nonatomic) IBOutlet UILabel *coin6Txt1;
- */
-
 - (IBAction)boardBt1Tapped:(id)sender;
 - (IBAction)boardBt2Tapped:(id)sender;
 - (IBAction)boardBt3Tapped:(id)sender;
@@ -78,6 +73,7 @@
 
 //player1
 @property (strong, nonatomic) IBOutlet NSString *player1sum;
+@property (strong, nonatomic) IBOutlet NSString *totalbet1sum;
 
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt1;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt1;
@@ -89,6 +85,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *previous1;
 @property (strong, nonatomic) IBOutlet UILabel *winlose1;
 @property (strong, nonatomic) IBOutlet UILabel *balance1;
+
+@property (strong, nonatomic) IBOutlet UILabel *resultwinlose1;
 
 @property (strong, nonatomic) IBOutlet UILabel *totalbet1;
 @property (strong, nonatomic) IBOutlet UILabel *balancegamble1;
@@ -107,6 +105,7 @@
 
 //player2
 @property (strong, nonatomic) IBOutlet NSString *player2sum;
+@property (strong, nonatomic) IBOutlet NSString *totalbet2sum;
 
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt2;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt2;
@@ -118,6 +117,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *previous2;
 @property (strong, nonatomic) IBOutlet UILabel *winlose2;
 @property (strong, nonatomic) IBOutlet UILabel *balance2;
+
+@property (strong, nonatomic) IBOutlet UILabel *resultwinlose2;
 
 @property (strong, nonatomic) IBOutlet UILabel *totalbet2;
 @property (strong, nonatomic) IBOutlet UILabel *balancegamble2;
@@ -136,6 +137,7 @@
 
 //player3
 @property (strong, nonatomic) IBOutlet NSString *player3sum;
+@property (strong, nonatomic) IBOutlet NSString *totalbet3sum;
 
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt3;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt3;
@@ -147,6 +149,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *previous3;
 @property (strong, nonatomic) IBOutlet UILabel *winlose3;
 @property (strong, nonatomic) IBOutlet UILabel *balance3;
+
+@property (strong, nonatomic) IBOutlet UILabel *resultwinlose3;
 
 @property (strong, nonatomic) IBOutlet UILabel *totalbet3;
 @property (strong, nonatomic) IBOutlet UILabel *balancegamble3;
@@ -165,6 +169,7 @@
 
 //player4
 @property (strong, nonatomic) IBOutlet NSString *player4sum;
+@property (strong, nonatomic) IBOutlet NSString *totalbet4sum;
 
 @property (strong, nonatomic) IBOutlet UILabel *board1Txt4;
 @property (strong, nonatomic) IBOutlet UILabel *board2Txt4;
@@ -176,6 +181,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *previous4;
 @property (strong, nonatomic) IBOutlet UILabel *winlose4;
 @property (strong, nonatomic) IBOutlet UILabel *balance4;
+
+@property (strong, nonatomic) IBOutlet UILabel *resultwinlose4;
 
 @property (strong, nonatomic) IBOutlet UILabel *totalbet4;
 @property (strong, nonatomic) IBOutlet UILabel *balancegamble4;
@@ -193,9 +200,13 @@
 - (IBAction)coin14Tapped:(id)sender;
 
 //dealer
+@property NSUserDefaults *SaveData;
+
 @property (strong, nonatomic) IBOutlet NSString *dealersum;
 
+@property (strong, nonatomic) IBOutlet UILabel *dealerwinlose;
 @property (strong, nonatomic) IBOutlet UILabel *dealerbalance;
+@property (strong, nonatomic) IBOutlet UILabel *dealerbalance1;
 
 
 @end

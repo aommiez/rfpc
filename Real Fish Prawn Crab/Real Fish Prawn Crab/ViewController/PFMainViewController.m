@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.SaveData = [NSUserDefaults standardUserDefaults];
     }
     return self;
 }
@@ -30,6 +31,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //audio
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                         pathForResource:@"gamesound"
+                                         ofType:@"mp3"]];
+    
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc]
+                    initWithContentsOfURL:url
+                    error:&error];
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",
+              [error localizedDescription]);
+    } else {
+        self.audioPlayer.delegate = self;
+        [self.audioPlayer prepareToPlay];
+    }
+    
+    [self.audioPlayer play];
+    
+    //
     
     self.coinLock.image = [UIImage imageNamed:@"coin_off.png"];
     
@@ -63,6 +86,54 @@
     self.boardImg4.image = [UIImage imageNamed:@"borad_4.png"];
     self.boardImg5.image = [UIImage imageNamed:@"borad_5.png"];
     self.boardImg6.image = [UIImage imageNamed:@"borad_6.png"];
+    
+    if ([[self.SaveData objectForKey:@"dealerbalance"] length] == 0) {
+        self.dealerbalance.text = @"0";
+        self.dealerbalance1.text = @"0";
+    } else {
+        self.dealerbalance.text = [self.SaveData objectForKey:@"dealerbalance"];
+        self.dealerbalance1.text = [self.SaveData objectForKey:@"dealerbalance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player1balance"] length] == 0) {
+        self.previous1.text = @"0";
+    } else {
+        self.previous1.text = [self.SaveData objectForKey:@"player1balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player2balance"] length] == 0) {
+        self.previous2.text = @"0";
+    } else {
+        self.previous2.text = [self.SaveData objectForKey:@"player2balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player3balance"] length] == 0) {
+        self.previous3.text = @"0";
+    } else {
+        self.previous3.text = [self.SaveData objectForKey:@"player3balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player4balance"] length] == 0) {
+        self.previous4.text = @"0";
+    } else {
+        self.previous4.text = [self.SaveData objectForKey:@"player4balance"];
+    }
+    
+    self.winlose1.text = @"0";
+    self.winlose2.text = @"0";
+    self.winlose3.text = @"0";
+    self.winlose4.text = @"0";
+    
+    self.balance1.text = @"0";
+    self.balance2.text = @"0";
+    self.balance3.text = @"0";
+    self.balance4.text = @"0";
+    
+    self.resultwinlose1.text = @"";
+    self.resultwinlose2.text = @"";
+    self.resultwinlose3.text = @"";
+    self.resultwinlose4.text = @"";
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,6 +254,23 @@
 - (IBAction)diceTapped:(id)sender {
     self.checkshake = @"1";
     [self.view addSubview:self.shakeView];
+    
+    self.dealerwinlose.text = @"";
+    
+    self.winlose1.text = @"0";
+    self.winlose2.text = @"0";
+    self.winlose3.text = @"0";
+    self.winlose4.text = @"0";
+    
+    self.balance1.text = @"0";
+    self.balance2.text = @"0";
+    self.balance3.text = @"0";
+    self.balance4.text = @"0";
+    
+    self.resultwinlose1.text = @"";
+    self.resultwinlose2.text = @"";
+    self.resultwinlose3.text = @"";
+    self.resultwinlose4.text = @"";
 }
 
 //Lock
@@ -202,6 +290,37 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     if ([self.checkshake isEqualToString:@"shake"]) {
         [self.shakeView removeFromSuperview];
         [self.view addSubview:self.gambleView];
+        
+        self.totalbet1.text = @"";
+        self.totalbet2.text = @"";
+        self.totalbet3.text = @"";
+        self.totalbet4.text = @"";
+        
+        self.board1Txt1.text = @""; self.board1Txt2.text = @"";
+        self.board1Txt3.text = @""; self.board1Txt4.text = @"";
+        
+        self.board2Txt1.text = @""; self.board2Txt2.text = @"";
+        self.board2Txt3.text = @""; self.board2Txt4.text = @"";
+        
+        self.board3Txt1.text = @""; self.board3Txt2.text = @"";
+        self.board3Txt3.text = @""; self.board3Txt4.text = @"";
+        
+        self.board4Txt1.text = @""; self.board4Txt2.text = @"";
+        self.board4Txt3.text = @""; self.board4Txt4.text = @"";
+        
+        self.board5Txt1.text = @""; self.board5Txt2.text = @"";
+        self.board5Txt3.text = @""; self.board5Txt4.text = @"";
+        
+        self.board6Txt1.text = @""; self.board6Txt2.text = @"";
+        self.board6Txt3.text = @""; self.board6Txt4.text = @"";
+        
+        self.player1sum = @"";   self.player2sum = @"";
+        self.player3sum = @"";   self.player4sum = @"";
+        
+        self.previous1.text = [self.SaveData objectForKey:@"player1balance"];
+        self.previous2.text = [self.SaveData objectForKey:@"player2balance"];
+        self.previous3.text = [self.SaveData objectForKey:@"player3balance"];
+        self.previous4.text = [self.SaveData objectForKey:@"player4balance"];
         
         [self.coin501 setImage:[UIImage imageNamed:@"red_coin_50"] forState:UIControlStateNormal];
         [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
@@ -1468,6 +1587,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     [self.coin101 setImage:[UIImage imageNamed:@"red_coin_10"] forState:UIControlStateNormal];
     [self.coin51 setImage:[UIImage imageNamed:@"red_coin_05"] forState:UIControlStateNormal];
     [self.coin11 setImage:[UIImage imageNamed:@"red_coin_01"] forState:UIControlStateNormal];
+    self.playercheck = @"";
 }
 
 //clear player2
@@ -1484,6 +1604,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     [self.coin102 setImage:[UIImage imageNamed:@"blue_coin_10"] forState:UIControlStateNormal];
     [self.coin52 setImage:[UIImage imageNamed:@"blue_coin_05"] forState:UIControlStateNormal];
     [self.coin12 setImage:[UIImage imageNamed:@"blue_coin_01"] forState:UIControlStateNormal];
+    self.playercheck = @"";
 }
 
 //clear player3
@@ -1500,6 +1621,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     [self.coin103 setImage:[UIImage imageNamed:@"green_coin_10"] forState:UIControlStateNormal];
     [self.coin53 setImage:[UIImage imageNamed:@"green_coin_05"] forState:UIControlStateNormal];
     [self.coin13 setImage:[UIImage imageNamed:@"green_coin_01"] forState:UIControlStateNormal];
+    self.playercheck = @"";
 }
 
 //clear player4
@@ -1516,6 +1638,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     [self.coin104 setImage:[UIImage imageNamed:@"yellow_coin_10"] forState:UIControlStateNormal];
     [self.coin54 setImage:[UIImage imageNamed:@"yellow_coin_05"] forState:UIControlStateNormal];
     [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
+    self.playercheck = @"";
 }
 
 //coin gamble player1
@@ -1957,6 +2080,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     } else if ([self.dice3 isEqualToString:@"6"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_6.png"];
     }
+    
+    self.totalbet1sum = self.totalbet1.text;
+    self.totalbet2sum = self.totalbet2.text;
+    self.totalbet3sum = self.totalbet3.text;
+    self.totalbet4sum = self.totalbet4.text;
 
 }
 
@@ -1964,373 +2092,773 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
 - (IBAction)resultTapped:(id)sender {
     [self.resultView removeFromSuperview];
     
+    //image
+    
     if ([self.dice1 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
-        
-        if (![self.board1Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board1Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board1Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board1Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board1Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice1 isEqualToString:@"2"]) {
-        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
-        
-        if (![self.board2Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board2Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board2Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board2Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board2Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice1 isEqualToString:@"3"]) {
-        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
-        
-        if (![self.board3Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board3Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board3Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board3Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board3Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice1 isEqualToString:@"4"]) {
-        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
-        
-        if (![self.board4Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board4Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board4Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board4Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board4Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice1 isEqualToString:@"5"]) {
-        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
-        
-        if (![self.board5Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board5Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board5Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board5Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board5Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice1 isEqualToString:@"6"]) {
-        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
-        
-        if (![self.board6Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board6Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board6Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board6Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board6Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
     }
+    
+    if ([self.dice1 isEqualToString:@"2"]) {
+        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+    }
+    
+    if ([self.dice1 isEqualToString:@"3"]) {
+        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+    }
+    
+    if ([self.dice1 isEqualToString:@"4"]) {
+        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+    }
+    
+    if ([self.dice1 isEqualToString:@"5"]) {
+        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+    }
+    
+    if ([self.dice1 isEqualToString:@"6"]) {
+        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+    }
+    
+    //
     
     if ([self.dice2 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
-        
-        if (![self.board1Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board1Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board1Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board1Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board1Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice2 isEqualToString:@"2"]) {
-        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
-        
-        if (![self.board2Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board2Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board2Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board2Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board2Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice2 isEqualToString:@"3"]) {
-        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
-        
-        if (![self.board3Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board3Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board3Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board3Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board3Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice2 isEqualToString:@"4"]) {
-        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
-        
-        if (![self.board4Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board4Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board4Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board4Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board4Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice2 isEqualToString:@"5"]) {
-        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
-        
-        if (![self.board5Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board5Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board5Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board5Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board5Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice2 isEqualToString:@"6"]) {
-        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
-        
-        if (![self.board6Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board6Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board6Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board6Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board6Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
     }
+    
+    if ([self.dice2 isEqualToString:@"2"]) {
+        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+    }
+    
+    if ([self.dice2 isEqualToString:@"3"]) {
+        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+    }
+    
+    if ([self.dice2 isEqualToString:@"4"]) {
+        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+    }
+    
+    if ([self.dice2 isEqualToString:@"5"]) {
+        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+    }
+    
+    if ([self.dice2 isEqualToString:@"6"]) {
+        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+    }
+    
+    //
     
     if ([self.dice3 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
-        
-        if (![self.board1Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board1Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board1Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board1Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board1Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board1Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice3 isEqualToString:@"2"]) {
-        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
-        
-        if (![self.board2Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board2Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board2Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board2Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board2Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board2Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice3 isEqualToString:@"3"]) {
-        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
-        
-        if (![self.board3Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board3Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board3Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board3Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board3Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board3Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice3 isEqualToString:@"4"]) {
-        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
-        
-        if (![self.board4Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board4Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board4Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board4Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board4Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board4Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice3 isEqualToString:@"5"]) {
-        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
-        
-        if (![self.board5Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board5Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board5Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board5Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board5Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board5Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
-    } else if ([self.dice3 isEqualToString:@"6"]) {
-        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
-        
-        if (![self.board6Txt1.text isEqualToString:@""]) {
-            int sum = self.player1sum.intValue+self.board6Txt1.text.intValue;
-            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt2.text isEqualToString:@""]) {
-            int sum = self.player2sum.intValue+self.board6Txt2.text.intValue;
-            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt3.text isEqualToString:@""]) {
-            int sum = self.player3sum.intValue+self.board6Txt3.text.intValue;
-            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        if (![self.board6Txt4.text isEqualToString:@""]) {
-            int sum = self.player4sum.intValue+self.board6Txt4.text.intValue;
-            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
-        }
-        
     }
     
-    NSLog(@"%@ %@ %@ %@",self.player1sum,self.player2sum,self.player3sum,self.player4sum);
+    if ([self.dice3 isEqualToString:@"2"]) {
+        self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+    }
+    
+    if ([self.dice3 isEqualToString:@"3"]) {
+        self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+    }
+    
+    if ([self.dice3 isEqualToString:@"4"]) {
+        self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+    }
+    
+    if ([self.dice3 isEqualToString:@"5"]) {
+        self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+    }
+    
+    if ([self.dice3 isEqualToString:@"6"]) {
+        self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+    }
+    
+    //player1
+    
+    if (![self.board1Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"1"] || [self.dice2 isEqualToString:@"1"] || [self.dice3 isEqualToString:@"1"]) {
+            
+            if ([self.dice1 isEqualToString:@"1"]) {
+                int sum = self.player1sum.intValue + self.board1Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"1"]) {
+                int sum = self.player1sum.intValue + self.board1Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"1"]) {
+                int sum = self.player1sum.intValue + self.board1Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board1Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board2Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"2"] || [self.dice2 isEqualToString:@"2"] || [self.dice3 isEqualToString:@"2"]) {
+            
+            if ([self.dice1 isEqualToString:@"2"]) {
+                int sum = self.player1sum.intValue + self.board2Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"2"]) {
+                int sum = self.player1sum.intValue + self.board2Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"2"]) {
+                int sum = self.player1sum.intValue + self.board2Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board2Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board3Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"3"] || [self.dice2 isEqualToString:@"3"] || [self.dice3 isEqualToString:@"3"]) {
+            
+            if ([self.dice1 isEqualToString:@"3"]) {
+                int sum = self.player1sum.intValue + self.board3Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"3"]) {
+                int sum = self.player1sum.intValue + self.board3Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"3"]) {
+                int sum = self.player1sum.intValue + self.board3Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board3Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board4Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"4"] || [self.dice2 isEqualToString:@"4"] || [self.dice3 isEqualToString:@"4"]) {
+            
+            if ([self.dice1 isEqualToString:@"4"]) {
+                int sum = self.player1sum.intValue + self.board4Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"4"]) {
+                int sum = self.player1sum.intValue + self.board4Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"4"]) {
+                int sum = self.player1sum.intValue + self.board4Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board4Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board5Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"5"] || [self.dice2 isEqualToString:@"5"] || [self.dice3 isEqualToString:@"5"]) {
+            
+            if ([self.dice1 isEqualToString:@"5"]) {
+                int sum = self.player1sum.intValue + self.board5Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"5"]) {
+                int sum = self.player1sum.intValue + self.board5Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"5"]) {
+                int sum = self.player1sum.intValue + self.board5Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board5Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board6Txt1.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"6"] || [self.dice2 isEqualToString:@"6"] || [self.dice3 isEqualToString:@"6"]) {
+            
+            if ([self.dice1 isEqualToString:@"6"]) {
+                int sum = self.player1sum.intValue + self.board6Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"6"]) {
+                int sum = self.player1sum.intValue + self.board6Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"6"]) {
+                int sum = self.player1sum.intValue + self.board6Txt1.text.intValue;
+                self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player1sum.intValue - self.board6Txt1.text.intValue;
+            self.player1sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    //player2
+    
+    if (![self.board1Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"1"] || [self.dice2 isEqualToString:@"1"] || [self.dice3 isEqualToString:@"1"]) {
+            
+            if ([self.dice1 isEqualToString:@"1"]) {
+                int sum = self.player2sum.intValue + self.board1Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"1"]) {
+                int sum = self.player2sum.intValue + self.board1Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"1"]) {
+                int sum = self.player2sum.intValue + self.board1Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board1Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board2Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"2"] || [self.dice2 isEqualToString:@"2"] || [self.dice3 isEqualToString:@"2"]) {
+            
+            if ([self.dice1 isEqualToString:@"2"]) {
+                int sum = self.player2sum.intValue + self.board2Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"2"]) {
+                int sum = self.player2sum.intValue + self.board2Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"2"]) {
+                int sum = self.player2sum.intValue + self.board2Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board2Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board3Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"3"] || [self.dice2 isEqualToString:@"3"] || [self.dice3 isEqualToString:@"3"]) {
+            
+            if ([self.dice1 isEqualToString:@"3"]) {
+                int sum = self.player2sum.intValue + self.board3Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"3"]) {
+                int sum = self.player2sum.intValue + self.board3Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"3"]) {
+                int sum = self.player2sum.intValue + self.board3Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board3Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board4Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"4"] || [self.dice2 isEqualToString:@"4"] || [self.dice3 isEqualToString:@"4"]) {
+            
+            if ([self.dice1 isEqualToString:@"4"]) {
+                int sum = self.player2sum.intValue + self.board4Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"4"]) {
+                int sum = self.player2sum.intValue + self.board4Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"4"]) {
+                int sum = self.player2sum.intValue + self.board4Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board4Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board5Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"5"] || [self.dice2 isEqualToString:@"5"] || [self.dice3 isEqualToString:@"5"]) {
+            
+            if ([self.dice1 isEqualToString:@"5"]) {
+                int sum = self.player2sum.intValue + self.board5Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"5"]) {
+                int sum = self.player2sum.intValue + self.board5Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"5"]) {
+                int sum = self.player2sum.intValue + self.board5Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board5Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board6Txt2.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"6"] || [self.dice2 isEqualToString:@"6"] || [self.dice3 isEqualToString:@"6"]) {
+            
+            if ([self.dice1 isEqualToString:@"6"]) {
+                int sum = self.player2sum.intValue + self.board6Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"6"]) {
+                int sum = self.player2sum.intValue + self.board6Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"6"]) {
+                int sum = self.player2sum.intValue + self.board6Txt2.text.intValue;
+                self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player2sum.intValue - self.board6Txt2.text.intValue;
+            self.player2sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    //player3
+    
+    if (![self.board1Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"1"] || [self.dice2 isEqualToString:@"1"] || [self.dice3 isEqualToString:@"1"]) {
+            
+            if ([self.dice1 isEqualToString:@"1"]) {
+                int sum = self.player3sum.intValue + self.board1Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"1"]) {
+                int sum = self.player3sum.intValue + self.board1Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"1"]) {
+                int sum = self.player3sum.intValue + self.board1Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board1Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board2Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"2"] || [self.dice2 isEqualToString:@"2"] || [self.dice3 isEqualToString:@"2"]) {
+            
+            if ([self.dice1 isEqualToString:@"2"]) {
+                int sum = self.player3sum.intValue + self.board2Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"2"]) {
+                int sum = self.player3sum.intValue + self.board2Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"2"]) {
+                int sum = self.player3sum.intValue + self.board2Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board2Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board3Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"3"] || [self.dice2 isEqualToString:@"3"] || [self.dice3 isEqualToString:@"3"]) {
+            
+            if ([self.dice1 isEqualToString:@"3"]) {
+                int sum = self.player3sum.intValue + self.board3Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"3"]) {
+                int sum = self.player3sum.intValue + self.board3Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"3"]) {
+                int sum = self.player3sum.intValue + self.board3Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board3Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board4Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"4"] || [self.dice2 isEqualToString:@"4"] || [self.dice3 isEqualToString:@"4"]) {
+            
+            if ([self.dice1 isEqualToString:@"4"]) {
+                int sum = self.player3sum.intValue + self.board4Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"4"]) {
+                int sum = self.player3sum.intValue + self.board4Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"4"]) {
+                int sum = self.player3sum.intValue + self.board4Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board4Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board5Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"5"] || [self.dice2 isEqualToString:@"5"] || [self.dice3 isEqualToString:@"5"]) {
+            
+            if ([self.dice1 isEqualToString:@"5"]) {
+                int sum = self.player3sum.intValue + self.board5Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"5"]) {
+                int sum = self.player3sum.intValue + self.board5Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"5"]) {
+                int sum = self.player3sum.intValue + self.board5Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board5Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board6Txt3.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"6"] || [self.dice2 isEqualToString:@"6"] || [self.dice3 isEqualToString:@"6"]) {
+            
+            if ([self.dice1 isEqualToString:@"6"]) {
+                int sum = self.player3sum.intValue + self.board6Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"6"]) {
+                int sum = self.player3sum.intValue + self.board6Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"6"]) {
+                int sum = self.player3sum.intValue + self.board6Txt3.text.intValue;
+                self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player3sum.intValue - self.board6Txt3.text.intValue;
+            self.player3sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+
+    //player4
+    
+    if (![self.board1Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"1"] || [self.dice2 isEqualToString:@"1"] || [self.dice3 isEqualToString:@"1"]) {
+            
+            if ([self.dice1 isEqualToString:@"1"]) {
+                int sum = self.player4sum.intValue + self.board1Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"1"]) {
+                int sum = self.player4sum.intValue + self.board1Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"1"]) {
+                int sum = self.player4sum.intValue + self.board1Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board1Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board2Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"2"] || [self.dice2 isEqualToString:@"2"] || [self.dice3 isEqualToString:@"2"]) {
+            
+            if ([self.dice1 isEqualToString:@"2"]) {
+                int sum = self.player4sum.intValue + self.board2Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"2"]) {
+                int sum = self.player4sum.intValue + self.board2Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"2"]) {
+                int sum = self.player4sum.intValue + self.board2Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board2Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board3Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"3"] || [self.dice2 isEqualToString:@"3"] || [self.dice3 isEqualToString:@"3"]) {
+            
+            if ([self.dice1 isEqualToString:@"3"]) {
+                int sum = self.player4sum.intValue + self.board3Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"3"]) {
+                int sum = self.player4sum.intValue + self.board3Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"3"]) {
+                int sum = self.player4sum.intValue + self.board3Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board3Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board4Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"4"] || [self.dice2 isEqualToString:@"4"] || [self.dice3 isEqualToString:@"4"]) {
+            
+            if ([self.dice1 isEqualToString:@"4"]) {
+                int sum = self.player4sum.intValue + self.board4Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"4"]) {
+                int sum = self.player4sum.intValue + self.board4Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"4"]) {
+                int sum = self.player4sum.intValue + self.board4Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board4Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board5Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"5"] || [self.dice2 isEqualToString:@"5"] || [self.dice3 isEqualToString:@"5"]) {
+            
+            if ([self.dice1 isEqualToString:@"5"]) {
+                int sum = self.player4sum.intValue + self.board5Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"5"]) {
+                int sum = self.player4sum.intValue + self.board5Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"5"]) {
+                int sum = self.player4sum.intValue + self.board5Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board5Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    if (![self.board6Txt4.text isEqualToString:@""]) {
+        
+        if ([self.dice1 isEqualToString:@"6"] || [self.dice2 isEqualToString:@"6"] || [self.dice3 isEqualToString:@"6"]) {
+            
+            if ([self.dice1 isEqualToString:@"6"]) {
+                int sum = self.player4sum.intValue + self.board6Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice2 isEqualToString:@"6"]) {
+                int sum = self.player4sum.intValue + self.board6Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            if ([self.dice3 isEqualToString:@"6"]) {
+                int sum = self.player4sum.intValue + self.board6Txt4.text.intValue;
+                self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+            }
+            
+        } else {
+            int sum = self.player4sum.intValue - self.board6Txt4.text.intValue;
+            self.player4sum = [[NSString alloc] initWithFormat:@"%i",sum];
+        }
+    }
+    
+    //
+    
+    if (self.player1sum.intValue > 0) {
+        self.winlose1.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player1sum];
+        self.resultwinlose1.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player1sum];
+    } else if (self.player1sum.intValue == 0) {
+        self.winlose1.text = self.player1sum;
+        self.resultwinlose1.text = @"Tie";
+    } else {
+        self.winlose1.text = self.player1sum;
+        self.resultwinlose1.text = self.player1sum;
+    }
+    
+    if (self.player2sum.intValue > 0) {
+        self.winlose2.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player2sum];
+        self.resultwinlose2.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player2sum];
+    } else if (self.player2sum.intValue == 0) {
+        self.winlose2.text = self.player2sum;
+        self.resultwinlose2.text = @"Tie";
+    } else {
+        self.winlose2.text = self.player2sum;
+        self.resultwinlose2.text = self.player2sum;
+    }
+    
+    if (self.player3sum.intValue > 0) {
+        self.winlose3.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player3sum];
+        self.resultwinlose3.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player3sum];
+    } else if (self.player3sum.intValue == 0) {
+        self.winlose3.text = self.player3sum;
+        self.resultwinlose3.text = @"Tie";
+    }else {
+        self.winlose3.text = self.player3sum;
+        self.resultwinlose3.text = self.player3sum;
+    }
+    
+    if (self.player4sum.intValue > 0) {
+        self.winlose4.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player4sum];
+        self.resultwinlose4.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player4sum];
+    } else if (self.player4sum.intValue == 0) {
+        self.winlose4.text = self.player4sum;
+        self.resultwinlose4.text = @"Tie";
+    }else {
+        self.winlose4.text = self.player4sum;
+        self.resultwinlose4.text = self.player4sum;
+    }
+    
+    //
+    
+    if ([[self.SaveData objectForKey:@"player1balance"] length] == 0) {
+        self.previous1.text = @"0";
+    } else {
+        self.previous1.text = [self.SaveData objectForKey:@"player1balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player2balance"] length] == 0) {
+        self.previous2.text = @"0";
+    } else {
+        self.previous2.text = [self.SaveData objectForKey:@"player2balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player3balance"] length] == 0) {
+        self.previous3.text = @"0";
+    } else {
+        self.previous3.text = [self.SaveData objectForKey:@"player3balance"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"player4balance"] length] == 0) {
+        self.previous4.text = @"0";
+    } else {
+        self.previous4.text = [self.SaveData objectForKey:@"player4balance"];
+    }
+    
+    //
+    
+    int total1 = self.previous1.text.intValue + self.player1sum.intValue;
+    if (total1 > 0) {
+        self.balance1.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total1];
+    } else {
+        self.balance1.text = [[NSString alloc] initWithFormat:@"%i",total1];
+    }
+    
+    int total2 = self.previous2.text.intValue + self.player2sum.intValue;
+    if (total2 > 0) {
+        self.balance2.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total2];
+    } else {
+        self.balance2.text = [[NSString alloc] initWithFormat:@"%i",total2];
+    }
+    
+    int total3 = self.previous3.text.intValue + self.player3sum.intValue;
+    if (total3 > 0) {
+        self.balance3.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total3];
+    } else {
+        self.balance3.text = [[NSString alloc] initWithFormat:@"%i",total3];
+    }
+    
+    int total4 = self.previous4.text.intValue + self.player4sum.intValue;
+    if (total4 > 0) {
+        self.balance4.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total4];
+    } else {
+        self.balance4.text = [[NSString alloc] initWithFormat:@"%i",total4];
+    }
+    
+    //
+    
+    int balance = 0 - (self.player1sum.intValue + self.player2sum.intValue + self.player3sum.intValue + self.player4sum.intValue);
+    
+    if (balance > 0) {
+        self.dealerwinlose.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",balance];
+    } else {
+        self.dealerwinlose.text = [[NSString alloc] initWithFormat:@"%i",balance];
+    }
+    
+    int total0 = [[self.SaveData objectForKey:@"dealerbalance"] intValue] + balance;
+    if (total0 > 0) {
+        self.dealerbalance.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total0];
+        self.dealerbalance1.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total0];
+    } else {
+        self.dealerbalance.text = [[NSString alloc] initWithFormat:@"%i",total0];
+        self.dealerbalance1.text = [[NSString alloc] initWithFormat:@"%i",total0];
+    }
+    
+    //
+    
+    [self.SaveData setObject:self.dealerbalance.text forKey:@"dealerbalance"];
+    [self.SaveData setObject:self.balance1.text forKey:@"player1balance"];
+    [self.SaveData setObject:self.balance2.text  forKey:@"player2balance"];
+    [self.SaveData setObject:self.balance3.text  forKey:@"player3balance"];
+    [self.SaveData setObject:self.balance4.text  forKey:@"player4balance"];
+    [self.SaveData synchronize];
 
 }
 
