@@ -99,7 +99,6 @@
 		52DAACD519D05936006B9060 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DAACD419D05936006B9060 /* loading1.png */; };
 		52DAACDC19D07173006B9060 /* Share_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DAACDA19D07173006B9060 /* Share_icon@2x.png */; };
 		52DAACDD19D07173006B9060 /* Setting_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DAACDB19D07173006B9060 /* Setting_icon@2x.png */; };
-		52DAACE419D08AEC006B9060 /* iosOut.mov in Resources */ = {isa = PBXBuildFile; fileRef = 52DAACE319D08AEC006B9060 /* iosOut.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +209,6 @@
 		52DAACD419D05936006B9060 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
 		52DAACDA19D07173006B9060 /* Share_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share_icon@2x.png"; sourceTree = "<group>"; };
 		52DAACDB19D07173006B9060 /* Setting_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting_icon@2x.png"; sourceTree = "<group>"; };
-		52DAACE319D08AEC006B9060 /* iosOut.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = iosOut.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,7 +495,6 @@
 		52DAACDE19D08388006B9060 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				52DAACE319D08AEC006B9060 /* iosOut.mov */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -631,7 +628,6 @@
 				5286E23C19C9E392001668E2 /* dice_6.png in Resources */,
 				52DAACCE19D04FA8006B9060 /* show_dice_6.png in Resources */,
 				5218130819C9263B005A7D71 /* bg_board.png in Resources */,
-				52DAACE419D08AEC006B9060 /* iosOut.mov in Resources */,
 				522002E219C89F0300B44480 /* select_yellow_coin_01.png in Resources */,
 				522002CC19C89F0300B44480 /* blue_coin_50.png in Resources */,
 				52DAACDD19D07173006B9060 /* Setting_icon@2x.png in Resources */,
