@@ -56,7 +56,8 @@ NSTimer *timmer;
     
     //
     
-    self.coinLock.image = [UIImage imageNamed:@"coin_off.png"];
+    [self.dealerbalance setFont:[UIFont systemFontOfSize:17]];
+    [self.dealerbalance1 setFont:[UIFont systemFontOfSize:17]];
     
     CALayer *border1 = [self.border1 layer];
     [border1 setBorderColor:RGB(190, 29, 45).CGColor];
@@ -81,6 +82,34 @@ NSTimer *timmer;
     [border4 setBorderWidth:2.0f];
     [border4 setMasksToBounds:YES];
     [border4 setCornerRadius:5.0f];
+    
+    //
+    
+    CALayer *bordermain1 = [self.bordermain1 layer];
+    [bordermain1 setBorderColor:RGB(190, 29, 45).CGColor];
+    [bordermain1 setBorderWidth:2.0f];
+    [bordermain1 setMasksToBounds:YES];
+    [bordermain1 setCornerRadius:5.0f];
+    
+    CALayer *bordermain2 = [self.bordermain2 layer];
+    [bordermain2 setBorderColor:RGB(28, 116, 188).CGColor];
+    [bordermain2 setBorderWidth:2.0f];
+    [bordermain2 setMasksToBounds:YES];
+    [bordermain2 setCornerRadius:5.0f];
+    
+    CALayer *bordermain3 = [self.bordermain3 layer];
+    [bordermain3 setBorderColor:RGB(58, 181, 74).CGColor];
+    [bordermain3 setBorderWidth:2.0f];
+    [bordermain3 setMasksToBounds:YES];
+    [bordermain3 setCornerRadius:5.0f];
+    
+    CALayer *bordermain4 = [self.bordermain4 layer];
+    [bordermain4 setBorderColor:RGB(248, 237, 50).CGColor];
+    [bordermain4 setBorderWidth:2.0f];
+    [bordermain4 setMasksToBounds:YES];
+    [bordermain4 setCornerRadius:5.0f];
+    
+    //
     
     self.maindiceImg1.image = nil;
     self.maindiceImg2.image = nil;
@@ -280,7 +309,7 @@ NSTimer *timmer;
 //mainView
 - (IBAction)mainTapped:(id)sender {
     [self.view addSubview:self.loadingView];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(checkN:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkN:) userInfo:nil repeats:NO];
 }
 
 -(void)checkN:(NSTimer *)timer
@@ -292,7 +321,15 @@ NSTimer *timmer;
 //open
 - (IBAction)diceTapped:(id)sender {
     self.checkshake = @"1";
-    [self.view addSubview:self.shakeView];
+    //[self.view addSubview:self.shakeView];
+    
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"iosOut"
+                                                          ofType:@"mov"];
+    
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
+                                                                      fileURLWithPath:videoPath]];
+    player.moviePlayer.controlStyle = MPMovieControlStyleNone;
+    [self presentMoviePlayerViewControllerAnimated:player];
     
     self.dealerwinlose.text = @"";
     
@@ -316,10 +353,12 @@ NSTimer *timmer;
 - (IBAction)LogdiceTapped:(id)sender {
     if (self.checkLog.length == 0) {
         self.checkLog = @"1";
-self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
+        [self.dealerbalance setFont:[UIFont boldSystemFontOfSize:17]];
+        [self.dealerbalance1 setFont:[UIFont boldSystemFontOfSize:17]];
     } else {
         self.checkLog = @"";
-        self.coinLock.image = [UIImage imageNamed:@"coin_off.png"];
+        [self.dealerbalance setFont:[UIFont systemFontOfSize:17]];
+        [self.dealerbalance1 setFont:[UIFont systemFontOfSize:17]];
     }
 }
 
@@ -334,6 +373,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
         self.totalbet2.text = @"";
         self.totalbet3.text = @"";
         self.totalbet4.text = @"";
+        
+        self.balancegamble1.text = [self.SaveData objectForKey:@"player1balance"];
+        self.balancegamble2.text = [self.SaveData objectForKey:@"player2balance"];
+        self.balancegamble3.text = [self.SaveData objectForKey:@"player3balance"];
+        self.balancegamble4.text = [self.SaveData objectForKey:@"player4balance"];
         
         self.board1Txt1.text = @""; self.board1Txt2.text = @"";
         self.board1Txt3.text = @""; self.board1Txt4.text = @"";
@@ -2814,7 +2858,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
         self.resultwinlose1.text = [[NSString alloc] initWithFormat:@"%@",self.player1sum];
     } else if (self.player1sum.intValue == 0) {
         self.winlose1.text = self.player1sum;
-        self.resultwinlose1.text = @"Tie";
+        if ([self.winlose1.text isEqualToString:@""]) {
+            self.resultwinlose1.text = @"";
+        } else {
+            self.resultwinlose1.text = @"Tie";
+        }
     } else {
         self.winlose1.text = self.player1sum;
         self.resultwinlose1.text = self.player1sum;
@@ -2825,7 +2873,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
         self.resultwinlose2.text = [[NSString alloc] initWithFormat:@"%@",self.player2sum];
     } else if (self.player2sum.intValue == 0) {
         self.winlose2.text = self.player2sum;
-        self.resultwinlose2.text = @"Tie";
+        if ([self.winlose2.text isEqualToString:@""]) {
+            self.resultwinlose2.text = @"";
+        } else {
+            self.resultwinlose2.text = @"Tie";
+        }
     } else {
         self.winlose2.text = self.player2sum;
         self.resultwinlose2.text = self.player2sum;
@@ -2836,7 +2888,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
         self.resultwinlose3.text = [[NSString alloc] initWithFormat:@"%@",self.player3sum];
     } else if (self.player3sum.intValue == 0) {
         self.winlose3.text = self.player3sum;
-        self.resultwinlose3.text = @"Tie";
+        if ([self.winlose3.text isEqualToString:@""]) {
+            self.resultwinlose3.text = @"";
+        } else {
+            self.resultwinlose3.text = @"Tie";
+        }
     }else {
         self.winlose3.text = self.player3sum;
         self.resultwinlose3.text = self.player3sum;
@@ -2847,7 +2903,11 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
         self.resultwinlose4.text = [[NSString alloc] initWithFormat:@"%@",self.player4sum];
     } else if (self.player4sum.intValue == 0) {
         self.winlose4.text = self.player4sum;
-        self.resultwinlose4.text = @"Tie";
+        if ([self.winlose4.text isEqualToString:@""]) {
+            self.resultwinlose4.text = @"";
+        } else {
+            self.resultwinlose4.text = @"Tie";
+        }
     }else {
         self.winlose4.text = self.player4sum;
         self.resultwinlose4.text = self.player4sum;
@@ -2918,6 +2978,22 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     [self.SaveData setObject:self.balance4.text  forKey:@"player4balance"];
     [self.SaveData synchronize];
 
+}
+
+- (IBAction)settingTapped:(id)sender {
+    [self.view addSubview:self.settingView];
+}
+
+- (IBAction)shareTapped:(id)sender {
+    [self.view addSubview:self.shareView];
+}
+
+- (IBAction)settingDoneTapped:(id)sender {
+    [self.settingView removeFromSuperview];
+}
+
+- (IBAction)shareDoneTapped:(id)sender {
+    [self.shareView removeFromSuperview];
 }
 
 @end

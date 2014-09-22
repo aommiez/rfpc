@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -48,6 +49,10 @@
                 <outlet property="border2" destination="GVf-Hm-FIF" id="k9a-mK-ecq"/>
                 <outlet property="border3" destination="uAt-F7-mOw" id="FUg-ZU-7W2"/>
                 <outlet property="border4" destination="1tt-PQ-UPh" id="ZTO-xR-c92"/>
+                <outlet property="bordermain1" destination="eVI-PE-h2e" id="tVL-xg-Pf9"/>
+                <outlet property="bordermain2" destination="lyZ-W2-Ptx" id="ylC-SL-B9i"/>
+                <outlet property="bordermain3" destination="0Ay-qj-6om" id="yFW-k5-IY7"/>
+                <outlet property="bordermain4" destination="avU-WB-xLc" id="XLm-hz-V2v"/>
                 <outlet property="coin101" destination="W7T-MJ-aRz" id="1Ij-Ww-RSm"/>
                 <outlet property="coin102" destination="7eu-fD-1p6" id="rRQ-mm-TyY"/>
                 <outlet property="coin103" destination="CeV-KF-7nu" id="ZU1-ZJ-v4C"/>
@@ -64,7 +69,6 @@
                 <outlet property="coin52" destination="SHK-hW-DYx" id="ADM-Jp-SMI"/>
                 <outlet property="coin53" destination="r7E-UO-W1h" id="YUp-3q-t5V"/>
                 <outlet property="coin54" destination="2BQ-PH-vSR" id="hxw-Xb-CIn"/>
-                <outlet property="coinLock" destination="971-p7-I6E" id="Xjx-UO-9fa"/>
                 <outlet property="dealerbalance" destination="yo2-2G-F8q" id="gga-kq-wYX"/>
                 <outlet property="dealerbalance1" destination="sh0-xG-wXl" id="53q-xI-U9J"/>
                 <outlet property="dealerwinlose" destination="sQb-wZ-RGz" id="kKe-um-Ecf"/>
@@ -86,7 +90,9 @@
                 <outlet property="resultwinlose2" destination="hAJ-HZ-yla" id="aea-Vi-HfK"/>
                 <outlet property="resultwinlose3" destination="ls7-VQ-35N" id="s96-64-Adt"/>
                 <outlet property="resultwinlose4" destination="AH3-ZL-FmD" id="k07-uL-Dyl"/>
+                <outlet property="settingView" destination="FHm-ea-BEc" id="CFK-hp-iZe"/>
                 <outlet property="shakeView" destination="Ash-Zv-NT5" id="7a0-Ur-hKA"/>
+                <outlet property="shareView" destination="SFE-Yr-Xgf" id="dct-ct-kYz"/>
                 <outlet property="showdiceImg1" destination="EHT-BG-Svi" id="WUN-NS-2qG"/>
                 <outlet property="showdiceImg2" destination="hPC-iq-Oyk" id="UcZ-NY-uJ9"/>
                 <outlet property="showdiceImg3" destination="whc-kO-Xze" id="19a-oV-Zfa"/>
@@ -129,7 +135,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading1.PNG" id="GQc-Ia-1Ri">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading1.png" id="GQc-Ia-1Ri">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -493,10 +499,6 @@
                         <action selector="diceTapped:" destination="-1" eventType="touchUpInside" id="IrQ-ZZ-IEG"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_off.png" id="971-p7-I6E">
-                    <rect key="frame" x="274" y="121" width="41" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup_02.png" id="EDC-RO-JLu">
                     <rect key="frame" x="116" y="135" width="88" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -512,6 +514,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ewp-QD-i5P">
+                    <rect key="frame" x="10" y="16" width="29" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Setting_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingTapped:" destination="-1" eventType="touchUpInside" id="hpj-Ai-259"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xsV-Ce-nRk">
                     <rect key="frame" x="138" y="8" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -524,6 +536,16 @@
                     <rect key="frame" x="86" y="8" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nDK-N6-Mwd">
+                    <rect key="frame" x="14" y="53" width="21" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Share_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="V0z-lz-hOI"/>
+                    </connections>
+                </button>
             </subviews>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -544,6 +566,26 @@
                     </state>
                     <connections>
                         <action selector="closeshakeTapped:" destination="-1" eventType="touchUpInside" id="7t7-ls-BII"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dIc-eU-2Go">
+                    <rect key="frame" x="10" y="16" width="29" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Setting_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingTapped:" destination="-1" eventType="touchUpInside" id="eLr-tg-931"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b4m-l9-dLT">
+                    <rect key="frame" x="14" y="53" width="21" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Share_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="cwV-ig-jaN"/>
                     </connections>
                 </button>
             </subviews>
@@ -1176,10 +1218,6 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_off.png" id="jWf-hU-Fqt">
-                    <rect key="frame" x="274" y="121" width="41" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup_01.png" id="p0M-JI-P8B">
                     <rect key="frame" x="125" y="88" width="70" height="82"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1192,6 +1230,26 @@
                     </state>
                     <connections>
                         <action selector="gambleTapped:" destination="-1" eventType="touchUpInside" id="vV3-Gw-27n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pml-6P-FQY">
+                    <rect key="frame" x="8" y="16" width="29" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Setting_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingTapped:" destination="-1" eventType="touchUpInside" id="UA2-E3-qVa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jle-SX-jTK">
+                    <rect key="frame" x="12" y="53" width="21" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Share_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="g1i-4C-0I0"/>
                     </connections>
                 </button>
             </subviews>
@@ -1240,13 +1298,79 @@
                     <rect key="frame" x="86" y="10" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="stD-CV-ajZ">
+                    <rect key="frame" x="10" y="16" width="29" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Setting_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingTapped:" destination="-1" eventType="touchUpInside" id="1pj-cB-eco"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xag-eZ-dzw">
+                    <rect key="frame" x="14" y="53" width="21" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="Share_icon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="pJA-1O-oSi"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <view contentMode="scaleToFill" id="FHm-ea-BEc">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting.png" id="NOF-CZ-zw8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bf9-tu-nd4">
+                    <rect key="frame" x="20" y="8" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settingDoneTapped:" destination="-1" eventType="touchUpInside" id="cC2-Ct-DSo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <view contentMode="scaleToFill" id="SFE-Yr-Xgf">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.png" id="Mft-Kb-ma4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WkT-RV-uFo">
+                    <rect key="frame" x="20" y="514" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareDoneTapped:" destination="-1" eventType="touchUpInside" id="Wma-4L-b73"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
     </objects>
     <resources>
+        <image name="Setting_icon.png" width="20" height="20"/>
+        <image name="Share_icon.png" width="14" height="20"/>
         <image name="bg-dish.png" width="640" height="1136"/>
         <image name="bg_board.png" width="640" height="1136"/>
         <image name="bg_shake.png" width="640" height="1136"/>
@@ -1258,12 +1382,13 @@
         <image name="borad_5.png" width="151" height="173"/>
         <image name="borad_6.png" width="151" height="173"/>
         <image name="bt_cancel.png" width="44" height="44"/>
-        <image name="coin_off.png" width="90" height="65"/>
         <image name="cup_01.png" width="140" height="168"/>
         <image name="cup_02.png" width="140" height="55"/>
         <image name="cup_03.png" width="140" height="164"/>
         <image name="loading.png" width="640" height="1136"/>
-        <image name="loading1.PNG" width="640" height="1136"/>
+        <image name="loading1.png" width="640" height="1136"/>
+        <image name="setting.png" width="640" height="1136"/>
+        <image name="share.png" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

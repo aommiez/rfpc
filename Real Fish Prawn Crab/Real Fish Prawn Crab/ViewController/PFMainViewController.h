@@ -7,15 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface PFMainViewController : UIViewController <AVAudioPlayerDelegate>
+
+//video
+@property (strong, nonatomic) NSURL *videoURL;
+@property (strong, nonatomic) MPMoviePlayerController *videoController;
 
 //audio
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @property (strong, nonatomic) AVAudioPlayer *audioshakePlayer;
 
-//mainView
+//settingView
+@property (strong, nonatomic) IBOutlet UIView *settingView;
+- (IBAction)settingDoneTapped:(id)sender;
+
+//shareView
+@property (strong, nonatomic) IBOutlet UIView *shareView;
+- (IBAction)shareDoneTapped:(id)sender;
+
+//loadingView
 @property (strong, nonatomic) IBOutlet UIView *loadingView;
 
 //mainView
@@ -23,7 +36,15 @@
 @property (strong, nonatomic) IBOutlet UIImageView *maindiceImg1;
 @property (strong, nonatomic) IBOutlet UIImageView *maindiceImg2;
 @property (strong, nonatomic) IBOutlet UIImageView *maindiceImg3;
+
+@property (strong, nonatomic) IBOutlet UIView *bordermain1;
+@property (strong, nonatomic) IBOutlet UIView *bordermain2;
+@property (strong, nonatomic) IBOutlet UIView *bordermain3;
+@property (strong, nonatomic) IBOutlet UIView *bordermain4;
+
 - (IBAction)mainTapped:(id)sender;
+- (IBAction)settingTapped:(id)sender;
+- (IBAction)shareTapped:(id)sender;
 
 //image board
 @property (strong, nonatomic) IBOutlet UIImageView *boardImg1;
@@ -46,8 +67,6 @@
 
 - (IBAction)diceTapped:(id)sender;
 - (IBAction)LogdiceTapped:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIImageView *coinLock;
 
 @property (strong, nonatomic) IBOutlet UIView *border1;
 @property (strong, nonatomic) IBOutlet UIView *border2;
