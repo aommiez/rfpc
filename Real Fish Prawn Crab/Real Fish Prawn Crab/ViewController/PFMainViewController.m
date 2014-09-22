@@ -14,6 +14,8 @@
 
 @implementation PFMainViewController
 
+NSTimer *timmer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -79,6 +81,10 @@
     [border4 setBorderWidth:2.0f];
     [border4 setMasksToBounds:YES];
     [border4 setCornerRadius:5.0f];
+    
+    self.maindiceImg1.image = nil;
+    self.maindiceImg2.image = nil;
+    self.maindiceImg3.image = nil;
     
     self.boardImg1.image = [UIImage imageNamed:@"borad_1.png"];
     self.boardImg2.image = [UIImage imageNamed:@"borad_2.png"];
@@ -149,7 +155,28 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (UIEventSubtypeMotionShake) {
         
+        //audio
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                             pathForResource:@"DiceSoundEffect"
+                                             ofType:@"mp3"]];
+        
+        NSError *error;
+        self.audioshakePlayer = [[AVAudioPlayer alloc]
+                            initWithContentsOfURL:url
+                            error:&error];
+        if (error)
+        {
+            NSLog(@"Error in audioPlayer: %@",
+                  [error localizedDescription]);
+        } else {
+            self.audioshakePlayer.delegate = self;
+            [self.audioshakePlayer prepareToPlay];
+        }
+        
+        [self.audioshakePlayer play];
+        
         if ([self.checkshake isEqualToString:@"1"]) {
+            
             if (self.checkLog.length == 0) {
                 int number1 = (arc4random()%6)+1; //Generates Number from 1 to 100.
                 NSString *string1 = [NSString stringWithFormat:@"%i", number1];
@@ -248,6 +275,18 @@
             }
         }
     }
+}
+
+//mainView
+- (IBAction)mainTapped:(id)sender {
+    [self.view addSubview:self.loadingView];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(checkN:) userInfo:nil repeats:NO];
+}
+
+-(void)checkN:(NSTimer *)timer
+{
+    [self.loadingView removeFromSuperview];
+    [self.view addSubview:self.mianView];
 }
 
 //open
@@ -2041,44 +2080,62 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     
     if ([self.dice1 isEqualToString:@"1"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_1.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice1 isEqualToString:@"2"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_2.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice1 isEqualToString:@"3"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_3.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice1 isEqualToString:@"4"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_4.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice1 isEqualToString:@"5"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_5.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice1 isEqualToString:@"6"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_6.png"];
+        self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     if ([self.dice2 isEqualToString:@"1"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_1.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice2 isEqualToString:@"2"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_2.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice2 isEqualToString:@"3"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_3.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice2 isEqualToString:@"4"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_4.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice2 isEqualToString:@"5"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_5.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice2 isEqualToString:@"6"]) {
         self.diceImg2.image = [UIImage imageNamed:@"dice_6.png"];
+        self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     if ([self.dice3 isEqualToString:@"1"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_1.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice3 isEqualToString:@"2"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_2.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice3 isEqualToString:@"3"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_3.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice3 isEqualToString:@"4"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_4.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice3 isEqualToString:@"5"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_5.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice3 isEqualToString:@"6"]) {
         self.diceImg3.image = [UIImage imageNamed:@"dice_6.png"];
+        self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     self.totalbet1sum = self.totalbet1.text;
@@ -2092,82 +2149,102 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
 - (IBAction)resultTapped:(id)sender {
     [self.resultView removeFromSuperview];
     
+    self.playercheck = @"";
+    
     //image
     
     if ([self.dice1 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_1.png"];
     }
     
     if ([self.dice1 isEqualToString:@"2"]) {
         self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_2.png"];
     }
     
     if ([self.dice1 isEqualToString:@"3"]) {
         self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_3.png"];
     }
     
     if ([self.dice1 isEqualToString:@"4"]) {
         self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_4.png"];
     }
     
     if ([self.dice1 isEqualToString:@"5"]) {
         self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_5.png"];
     }
     
     if ([self.dice1 isEqualToString:@"6"]) {
         self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+        self.maindiceImg1.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     //
     
     if ([self.dice2 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_1.png"];
     }
     
     if ([self.dice2 isEqualToString:@"2"]) {
         self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_2.png"];
     }
     
     if ([self.dice2 isEqualToString:@"3"]) {
         self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_3.png"];
     }
     
     if ([self.dice2 isEqualToString:@"4"]) {
         self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_4.png"];
     }
     
     if ([self.dice2 isEqualToString:@"5"]) {
         self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_5.png"];
     }
     
     if ([self.dice2 isEqualToString:@"6"]) {
         self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+        self.maindiceImg2.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     //
     
     if ([self.dice3 isEqualToString:@"1"]) {
         self.boardImg1.image = [UIImage imageNamed:@"select_borad_1.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_1.png"];
     }
     
     if ([self.dice3 isEqualToString:@"2"]) {
         self.boardImg2.image = [UIImage imageNamed:@"select_borad_2.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_2.png"];
     }
     
     if ([self.dice3 isEqualToString:@"3"]) {
         self.boardImg3.image = [UIImage imageNamed:@"select_borad_3.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_3.png"];
     }
     
     if ([self.dice3 isEqualToString:@"4"]) {
         self.boardImg4.image = [UIImage imageNamed:@"select_borad_4.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_4.png"];
     }
     
     if ([self.dice3 isEqualToString:@"5"]) {
         self.boardImg5.image = [UIImage imageNamed:@"select_borad_5.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_5.png"];
     }
     
     if ([self.dice3 isEqualToString:@"6"]) {
         self.boardImg6.image = [UIImage imageNamed:@"select_borad_6.png"];
+        self.maindiceImg3.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     //player1
@@ -2734,7 +2811,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     
     if (self.player1sum.intValue > 0) {
         self.winlose1.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player1sum];
-        self.resultwinlose1.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player1sum];
+        self.resultwinlose1.text = [[NSString alloc] initWithFormat:@"%@",self.player1sum];
     } else if (self.player1sum.intValue == 0) {
         self.winlose1.text = self.player1sum;
         self.resultwinlose1.text = @"Tie";
@@ -2745,7 +2822,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     
     if (self.player2sum.intValue > 0) {
         self.winlose2.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player2sum];
-        self.resultwinlose2.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player2sum];
+        self.resultwinlose2.text = [[NSString alloc] initWithFormat:@"%@",self.player2sum];
     } else if (self.player2sum.intValue == 0) {
         self.winlose2.text = self.player2sum;
         self.resultwinlose2.text = @"Tie";
@@ -2756,7 +2833,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     
     if (self.player3sum.intValue > 0) {
         self.winlose3.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player3sum];
-        self.resultwinlose3.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player3sum];
+        self.resultwinlose3.text = [[NSString alloc] initWithFormat:@"%@",self.player3sum];
     } else if (self.player3sum.intValue == 0) {
         self.winlose3.text = self.player3sum;
         self.resultwinlose3.text = @"Tie";
@@ -2767,7 +2844,7 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     
     if (self.player4sum.intValue > 0) {
         self.winlose4.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player4sum];
-        self.resultwinlose4.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player4sum];
+        self.resultwinlose4.text = [[NSString alloc] initWithFormat:@"%@",self.player4sum];
     } else if (self.player4sum.intValue == 0) {
         self.winlose4.text = self.player4sum;
         self.resultwinlose4.text = @"Tie";
@@ -2805,32 +2882,18 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     //
     
     int total1 = self.previous1.text.intValue + self.player1sum.intValue;
-    if (total1 > 0) {
-        self.balance1.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total1];
-    } else {
-        self.balance1.text = [[NSString alloc] initWithFormat:@"%i",total1];
-    }
+    self.balance1.text = [[NSString alloc] initWithFormat:@"%i",total1];
+
     
     int total2 = self.previous2.text.intValue + self.player2sum.intValue;
-    if (total2 > 0) {
-        self.balance2.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total2];
-    } else {
-        self.balance2.text = [[NSString alloc] initWithFormat:@"%i",total2];
-    }
+    self.balance2.text = [[NSString alloc] initWithFormat:@"%i",total2];
     
     int total3 = self.previous3.text.intValue + self.player3sum.intValue;
-    if (total3 > 0) {
-        self.balance3.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total3];
-    } else {
-        self.balance3.text = [[NSString alloc] initWithFormat:@"%i",total3];
-    }
+    self.balance3.text = [[NSString alloc] initWithFormat:@"%i",total3];
+
     
     int total4 = self.previous4.text.intValue + self.player4sum.intValue;
-    if (total4 > 0) {
-        self.balance4.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total4];
-    } else {
-        self.balance4.text = [[NSString alloc] initWithFormat:@"%i",total4];
-    }
+    self.balance4.text = [[NSString alloc] initWithFormat:@"%i",total4];
     
     //
     
@@ -2843,13 +2906,8 @@ self.coinLock.image = [UIImage imageNamed:@"coin_on.png"];
     }
     
     int total0 = [[self.SaveData objectForKey:@"dealerbalance"] intValue] + balance;
-    if (total0 > 0) {
-        self.dealerbalance.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total0];
-        self.dealerbalance1.text = [[NSString alloc] initWithFormat:@"%@%i",@"+",total0];
-    } else {
-        self.dealerbalance.text = [[NSString alloc] initWithFormat:@"%i",total0];
-        self.dealerbalance1.text = [[NSString alloc] initWithFormat:@"%i",total0];
-    }
+    self.dealerbalance.text = [[NSString alloc] initWithFormat:@"%i",total0];
+    self.dealerbalance1.text = [[NSString alloc] initWithFormat:@"%i",total0];
     
     //
     

@@ -13,6 +13,17 @@
 
 //audio
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) AVAudioPlayer *audioshakePlayer;
+
+//mainView
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
+
+//mainView
+@property (strong, nonatomic) IBOutlet UIView *mianView;
+@property (strong, nonatomic) IBOutlet UIImageView *maindiceImg1;
+@property (strong, nonatomic) IBOutlet UIImageView *maindiceImg2;
+@property (strong, nonatomic) IBOutlet UIImageView *maindiceImg3;
+- (IBAction)mainTapped:(id)sender;
 
 //image board
 @property (strong, nonatomic) IBOutlet UIImageView *boardImg1;
@@ -55,6 +66,9 @@
 
 //ดูผลลัพธ์
 @property (strong, nonatomic) IBOutlet UIView *resultView;
+@property (strong, nonatomic) IBOutlet UIImageView *showdiceImg1;
+@property (strong, nonatomic) IBOutlet UIImageView *showdiceImg2;
+@property (strong, nonatomic) IBOutlet UIImageView *showdiceImg3;
 @property (strong, nonatomic) IBOutlet UIImageView *diceImg1;
 @property (strong, nonatomic) IBOutlet UIImageView *diceImg2;
 @property (strong, nonatomic) IBOutlet UIImageView *diceImg3;
