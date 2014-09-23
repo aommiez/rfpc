@@ -34,25 +34,28 @@ NSTimer *timmer;
 {
     [super viewDidLoad];
     
-    //audio
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                         pathForResource:@"gamesound"
-                                         ofType:@"mp3"]];
-    
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc]
-                    initWithContentsOfURL:url
-                    error:&error];
-    if (error)
-    {
-        NSLog(@"Error in audioPlayer: %@",
-              [error localizedDescription]);
-    } else {
-        self.audioPlayer.delegate = self;
-        [self.audioPlayer prepareToPlay];
+    if (![self.checkmute isEqualToString:@"mute"]) {
+        //audio
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                             pathForResource:@"gamesound"
+                                             ofType:@"mp3"]];
+        
+        NSError *error;
+        self.audioPlayer = [[AVAudioPlayer alloc]
+                            initWithContentsOfURL:url
+                            error:&error];
+        if (error)
+        {
+            NSLog(@"Error in audioPlayer: %@",
+                  [error localizedDescription]);
+        } else {
+            self.audioPlayer.delegate = self;
+            [self.audioPlayer prepareToPlay];
+        }
+        
+        [self.audioPlayer setVolume: 1.0];
+        [self.audioPlayer play];
     }
-    
-    [self.audioPlayer play];
     
     //
     
@@ -184,25 +187,63 @@ NSTimer *timmer;
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (UIEventSubtypeMotionShake) {
         
-        //audio
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                             pathForResource:@"DiceSoundEffect"
-                                             ofType:@"mp3"]];
-        
-        NSError *error;
-        self.audioshakePlayer = [[AVAudioPlayer alloc]
-                            initWithContentsOfURL:url
-                            error:&error];
-        if (error)
-        {
-            NSLog(@"Error in audioPlayer: %@",
-                  [error localizedDescription]);
-        } else {
-            self.audioshakePlayer.delegate = self;
-            [self.audioshakePlayer prepareToPlay];
+        if ([self.checkaudio isEqualToString:@"on"]) {
+            //audio
+            NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                 pathForResource:@"DiceSoundEffect"
+                                                 ofType:@"mp3"]];
+            
+            NSError *error;
+            self.audioshakePlayer = [[AVAudioPlayer alloc]
+                                     initWithContentsOfURL:url
+                                     error:&error];
+            if (error)
+            {
+                NSLog(@"Error in audioPlayer: %@",
+                      [error localizedDescription]);
+            } else {
+                self.audioshakePlayer.delegate = self;
+                [self.audioshakePlayer prepareToPlay];
+            }
+            [self.audioPlayer setVolume: 0.6];
+            [self.audioshakePlayer play];
         }
         
-        [self.audioshakePlayer play];
+        [self.errorView removeFromSuperview];
+        
+        //ramdom image
+        
+        self.randomImg.animationImages = [NSArray arrayWithObjects:
+                                     [UIImage imageNamed:@"circle_01.png"],
+                                     [UIImage imageNamed:@"circle_02.png"],
+                                     [UIImage imageNamed:@"circle_03.png"],
+                                     [UIImage imageNamed:@"circle_04.png"],
+                                     [UIImage imageNamed:@"circle_05.png"],
+                                     [UIImage imageNamed:@"circle_01.png"],
+                                     [UIImage imageNamed:@"circle_02.png"],
+                                     [UIImage imageNamed:@"circle_03.png"],
+                                     [UIImage imageNamed:@"circle_04.png"],
+                                     [UIImage imageNamed:@"circle_05.png"],
+                                     [UIImage imageNamed:@"circle_01.png"],
+                                     [UIImage imageNamed:@"circle_02.png"],
+                                     [UIImage imageNamed:@"circle_03.png"],
+                                     [UIImage imageNamed:@"circle_04.png"],
+                                     [UIImage imageNamed:@"circle_05.png"],
+                                     [UIImage imageNamed:@"circle_01.png"],
+                                     [UIImage imageNamed:@"circle_02.png"],
+                                     [UIImage imageNamed:@"circle_03.png"],
+                                     [UIImage imageNamed:@"circle_04.png"],
+                                     [UIImage imageNamed:@"circle_05.png"],
+                                     [UIImage imageNamed:@"circle_01.png"],
+                                     [UIImage imageNamed:@"circle_02.png"],
+                                     [UIImage imageNamed:@"circle_03.png"],
+                                     [UIImage imageNamed:@"circle_04.png"],
+                                     [UIImage imageNamed:@"circle_05.png"],nil];
+        
+        
+        self.randomImg.animationDuration = 2.0;
+        self.randomImg.animationRepeatCount = 1;
+        [self.randomImg startAnimating];
         
         if ([self.checkshake isEqualToString:@"1"]) {
             
@@ -321,15 +362,18 @@ NSTimer *timmer;
 //open
 - (IBAction)diceTapped:(id)sender {
     self.checkshake = @"1";
-    //[self.view addSubview:self.shakeView];
+    self.checkaudio = @"on";
     
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"iosOut"
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"Zoomin"
                                                           ofType:@"mov"];
     
-    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
+    self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
                                                                       fileURLWithPath:videoPath]];
-    player.moviePlayer.controlStyle = MPMovieControlStyleNone;
-    [self presentMoviePlayerViewControllerAnimated:player];
+    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
+    [self.view addSubview:self.videoController.view];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(closeIn:) userInfo:nil repeats:NO];
     
     self.dealerwinlose.text = @"";
     
@@ -349,6 +393,12 @@ NSTimer *timmer;
     self.resultwinlose4.text = @"";
 }
 
+-(void)closeIn:(NSTimer *)timer
+{
+    [self.videoController.view removeFromSuperview];
+    [self.view addSubview:self.shakeView];
+}
+
 //Lock
 - (IBAction)LogdiceTapped:(id)sender {
     if (self.checkLog.length == 0) {
@@ -365,9 +415,22 @@ NSTimer *timmer;
 //shake
 
 - (IBAction)closeshakeTapped:(id)sender {
+    
     if ([self.checkshake isEqualToString:@"shake"]) {
-        [self.shakeView removeFromSuperview];
-        [self.view addSubview:self.gambleView];
+        
+        self.checkaudio = @"off";
+        [self.audioPlayer setVolume: 1.0];
+        
+        NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"Zoomout"
+                                                              ofType:@"mov"];
+        
+        self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
+                                                                                        fileURLWithPath:videoPath]];
+        self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+        self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
+        [self.view addSubview:self.videoController.view];
+        
+        [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(closeOut:) userInfo:nil repeats:NO];
         
         self.totalbet1.text = @"";
         self.totalbet2.text = @"";
@@ -426,12 +489,21 @@ NSTimer *timmer;
         [self.coin14 setImage:[UIImage imageNamed:@"yellow_coin_01"] forState:UIControlStateNormal];
         
     } else {
-        [[[UIAlertView alloc] initWithTitle:nil
-                                    message:@"Please shake again."
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+        [self.view addSubview:self.errorView];
+        
+//        [[[UIAlertView alloc] initWithTitle:nil
+//                                    message:@"Please shake again."
+//                                   delegate:nil
+//                          cancelButtonTitle:@"OK"
+//                          otherButtonTitles:nil] show];
     }
+}
+
+-(void)closeOut:(NSTimer *)timer
+{
+    [self.videoController.view removeFromSuperview];
+    [self.shakeView removeFromSuperview];
+    [self.view addSubview:self.gambleView];
 }
 
 //board gamble
@@ -2119,8 +2191,17 @@ NSTimer *timmer;
 //gamble
 
 - (IBAction)gambleTapped:(id)sender {
-    [self.gambleView removeFromSuperview];
-    [self.view addSubview:self.resultView];
+    
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"Zoomin"
+                                                          ofType:@"mov"];
+    
+    self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
+                                                                                    fileURLWithPath:videoPath]];
+    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
+    [self.view addSubview:self.videoController.view];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(closeIn1:) userInfo:nil repeats:NO];
     
     if ([self.dice1 isEqualToString:@"1"]) {
         self.diceImg1.image = [UIImage imageNamed:@"dice_1.png"];
@@ -2189,9 +2270,32 @@ NSTimer *timmer;
 
 }
 
+-(void)closeIn1:(NSTimer *)timer
+{
+    [self.videoController.view removeFromSuperview];
+    [self.gambleView removeFromSuperview];
+    [self.view addSubview:self.resultView];
+}
+
+-(void)closeOut1:(NSTimer *)timer
+{
+    [self.videoController.view removeFromSuperview];
+    [self.resultView removeFromSuperview];
+}
+
 //result
 - (IBAction)resultTapped:(id)sender {
-    [self.resultView removeFromSuperview];
+    
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"Zoomout"
+                                                          ofType:@"mov"];
+    
+    self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
+                                                                                    fileURLWithPath:videoPath]];
+    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
+    [self.view addSubview:self.videoController.view];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(closeOut1:) userInfo:nil repeats:NO];
     
     self.playercheck = @"";
     
@@ -2857,12 +2961,8 @@ NSTimer *timmer;
         self.winlose1.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player1sum];
         self.resultwinlose1.text = [[NSString alloc] initWithFormat:@"%@",self.player1sum];
     } else if (self.player1sum.intValue == 0) {
-        self.winlose1.text = self.player1sum;
-        if ([self.winlose1.text isEqualToString:@""]) {
-            self.resultwinlose1.text = @"";
-        } else {
-            self.resultwinlose1.text = @"Tie";
-        }
+        self.winlose1.text = @"0";
+        self.resultwinlose1.text = @"Tie";
     } else {
         self.winlose1.text = self.player1sum;
         self.resultwinlose1.text = self.player1sum;
@@ -2872,12 +2972,8 @@ NSTimer *timmer;
         self.winlose2.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player2sum];
         self.resultwinlose2.text = [[NSString alloc] initWithFormat:@"%@",self.player2sum];
     } else if (self.player2sum.intValue == 0) {
-        self.winlose2.text = self.player2sum;
-        if ([self.winlose2.text isEqualToString:@""]) {
-            self.resultwinlose2.text = @"";
-        } else {
-            self.resultwinlose2.text = @"Tie";
-        }
+        self.winlose2.text = @"0";
+        self.resultwinlose2.text = @"Tie";
     } else {
         self.winlose2.text = self.player2sum;
         self.resultwinlose2.text = self.player2sum;
@@ -2887,12 +2983,8 @@ NSTimer *timmer;
         self.winlose3.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player3sum];
         self.resultwinlose3.text = [[NSString alloc] initWithFormat:@"%@",self.player3sum];
     } else if (self.player3sum.intValue == 0) {
-        self.winlose3.text = self.player3sum;
-        if ([self.winlose3.text isEqualToString:@""]) {
-            self.resultwinlose3.text = @"";
-        } else {
-            self.resultwinlose3.text = @"Tie";
-        }
+        self.winlose3.text = @"0";
+        self.resultwinlose3.text = @"Tie";
     }else {
         self.winlose3.text = self.player3sum;
         self.resultwinlose3.text = self.player3sum;
@@ -2902,12 +2994,8 @@ NSTimer *timmer;
         self.winlose4.text = [[NSString alloc] initWithFormat:@"%@%@",@"+",self.player4sum];
         self.resultwinlose4.text = [[NSString alloc] initWithFormat:@"%@",self.player4sum];
     } else if (self.player4sum.intValue == 0) {
-        self.winlose4.text = self.player4sum;
-        if ([self.winlose4.text isEqualToString:@""]) {
-            self.resultwinlose4.text = @"";
-        } else {
-            self.resultwinlose4.text = @"Tie";
-        }
+        self.winlose4.text = @"0";
+        self.resultwinlose4.text = @"Tie";
     }else {
         self.winlose4.text = self.player4sum;
         self.resultwinlose4.text = self.player4sum;
@@ -2982,18 +3070,173 @@ NSTimer *timmer;
 
 - (IBAction)settingTapped:(id)sender {
     [self.view addSubview:self.settingView];
-}
-
-- (IBAction)shareTapped:(id)sender {
-    [self.view addSubview:self.shareView];
+    
+    if (![self.checkmute isEqualToString:@"mute"]) {
+        self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+    } else {
+        self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+    }
+    
+    if ([[self.SaveData objectForKey:@"dealerbalance"] intValue] != 0) {
+        self.playerImgAll.image = [UIImage imageNamed:@"playerDataAll.png"];
+    } else {
+        self.playerImgAll.image = nil;
+    }
+    
+    if ([[self.SaveData objectForKey:@"player1balance"] intValue] != 0) {
+        self.playerImg1.image = [UIImage imageNamed:@"playerData1.png"];
+    } else {
+        self.playerImg1.image = nil;
+    }
+    
+    if ([[self.SaveData objectForKey:@"player2balance"] intValue] != 0) {
+        self.playerImg2.image = [UIImage imageNamed:@"playerData2.png"];
+    } else {
+        self.playerImg2.image = nil;
+    }
+    
+    if ([[self.SaveData objectForKey:@"player3balance"] intValue] != 0) {
+        self.playerImg3.image = [UIImage imageNamed:@"playerData3.png"];
+    } else {
+        self.playerImg3.image = nil;
+    }
+    
+    if ([[self.SaveData objectForKey:@"player4balance"] intValue] != 0) {
+        self.playerImg4.image = [UIImage imageNamed:@"playerData4.png"];
+    } else {
+        self.playerImg4.image = nil;
+    }
 }
 
 - (IBAction)settingDoneTapped:(id)sender {
     [self.settingView removeFromSuperview];
 }
 
+- (IBAction)settingMuteTapped:(id)sender {
+    if (![self.checkmute isEqualToString:@"mute"]) {
+        self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+        self.checkmute = @"mute";
+        [self.audioPlayer stop];
+    } else {
+        self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+        self.checkmute = @"unmute";
+        [self.audioPlayer play];
+    }
+}
+
+- (IBAction)shareTapped:(id)sender {
+    [self.view addSubview:self.shareView];
+}
+    
 - (IBAction)shareDoneTapped:(id)sender {
     [self.shareView removeFromSuperview];
+}
+
+//clear
+- (IBAction)clearPlayer1Tapped:(id)sender {
+    [self.SaveData setObject:@"0" forKey:@"player1balance"];
+    self.previous1.text = @"0";
+    self.winlose1.text = @"0";
+    self.balance1.text = @"0";
+    self.resultwinlose1.text = @"";
+    
+    self.totalbet1.text = @"0";
+    self.balancegamble1.text = @"0";
+    
+    self.playerImg1.image = nil;
+}
+
+- (IBAction)clearPlayer2Tapped:(id)sender {
+    [self.SaveData setObject:@"0" forKey:@"player2balance"];
+    self.previous2.text = @"0";
+    self.winlose2.text = @"0";
+    self.balance2.text = @"0";
+    self.resultwinlose2.text = @"";
+    
+    self.totalbet2.text = @"0";
+    self.balancegamble2.text = @"0";
+    
+    self.playerImg2.image = nil;
+}
+
+- (IBAction)clearPlayer3Tapped:(id)sender {
+    [self.SaveData setObject:@"0" forKey:@"player3balance"];
+    self.previous3.text = @"0";
+    self.winlose3.text = @"0";
+    self.balance3.text = @"0";
+    self.resultwinlose3.text = @"";
+    
+    self.totalbet3.text = @"0";
+    self.balancegamble3.text = @"0";
+    
+    self.playerImg3.image = nil;
+}
+
+- (IBAction)clearPlayer4Tapped:(id)sender {
+    [self.SaveData setObject:@"0" forKey:@"player4balance"];
+    self.previous4.text = @"0";
+    self.winlose4.text = @"0";
+    self.balance4.text = @"0";
+    self.resultwinlose4.text = @"";
+    
+    self.totalbet4.text = @"0";
+    self.balancegamble4.text = @"0";
+    
+    self.playerImg4.image = nil;
+}
+
+- (IBAction)clearAllTapped:(id)sender {
+    
+    [self.SaveData setObject:@"0" forKey:@"dealerbalance"];
+    [self.SaveData setObject:@"0" forKey:@"player1balance"];
+    [self.SaveData setObject:@"0" forKey:@"player2balance"];
+    [self.SaveData setObject:@"0" forKey:@"player3balance"];
+    [self.SaveData setObject:@"0" forKey:@"player4balance"];
+    
+    self.dealerwinlose.text = @"";
+    self.dealerbalance.text = @"0";
+    self.dealerbalance1.text = @"0";
+    
+    [self clearData];
+}
+
+- (void)clearData {
+    
+    self.playerImgAll.image = nil;
+    self.playerImg1.image = nil;
+    self.playerImg2.image = nil;
+    self.playerImg3.image = nil;
+    self.playerImg4.image = nil;
+    
+    self.previous1.text = @"0";
+    self.previous2.text = @"0";
+    self.previous3.text = @"0";
+    self.previous4.text = @"0";
+    
+    self.winlose1.text = @"0";
+    self.winlose2.text = @"0";
+    self.winlose3.text = @"0";
+    self.winlose4.text = @"0";
+    
+    self.balance1.text = @"0";
+    self.balance2.text = @"0";
+    self.balance3.text = @"0";
+    self.balance4.text = @"0";
+    
+    self.resultwinlose1.text = @"";
+    self.resultwinlose2.text = @"";
+    self.resultwinlose3.text = @"";
+    self.resultwinlose4.text = @"";
+    
+    self.totalbet1.text = @"0";
+    self.totalbet2.text = @"0";
+    self.totalbet3.text = @"0";
+    self.totalbet4.text = @"0";
+    
+    self.balancegamble1.text = @"0";
+    self.balancegamble2.text = @"0";
+    self.balancegamble3.text = @"0";
+    self.balancegamble4.text = @"0";
 }
 
 @end

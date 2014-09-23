@@ -14,18 +14,39 @@
 
 //video
 @property (strong, nonatomic) NSURL *videoURL;
-@property (strong, nonatomic) MPMoviePlayerController *videoController;
+@property (strong, nonatomic) MPMoviePlayerViewController *videoController;
 
 //audio
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @property (strong, nonatomic) AVAudioPlayer *audioshakePlayer;
 
+@property (strong, nonatomic) IBOutlet NSString *checkaudio;
+
 //settingView
 @property (strong, nonatomic) IBOutlet UIView *settingView;
+
+@property (strong, nonatomic) IBOutlet NSString *checkmute;
+
+@property (strong, nonatomic) IBOutlet UIImageView *bgSettingImg;
+@property (strong, nonatomic) IBOutlet UIImageView *playerImg1;
+@property (strong, nonatomic) IBOutlet UIImageView *playerImg2;
+@property (strong, nonatomic) IBOutlet UIImageView *playerImg3;
+@property (strong, nonatomic) IBOutlet UIImageView *playerImg4;
+@property (strong, nonatomic) IBOutlet UIImageView *playerImgAll;
 - (IBAction)settingDoneTapped:(id)sender;
+
+- (IBAction)settingMuteTapped:(id)sender;
+
+- (IBAction)clearPlayer1Tapped:(id)sender;
+- (IBAction)clearPlayer2Tapped:(id)sender;
+- (IBAction)clearPlayer3Tapped:(id)sender;
+- (IBAction)clearPlayer4Tapped:(id)sender;
+- (IBAction)clearAllTapped:(id)sender;
 
 //shareView
 @property (strong, nonatomic) IBOutlet UIView *shareView;
+@property (strong, nonatomic) IBOutlet UIView *errorView;
+@property (strong, nonatomic) IBOutlet UIImageView *randomImg;
 - (IBAction)shareDoneTapped:(id)sender;
 
 //loadingView
