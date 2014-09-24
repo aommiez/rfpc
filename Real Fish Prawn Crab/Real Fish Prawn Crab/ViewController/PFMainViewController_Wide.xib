@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -73,9 +72,18 @@
                 <outlet property="dealerbalance" destination="yo2-2G-F8q" id="gga-kq-wYX"/>
                 <outlet property="dealerbalance1" destination="sh0-xG-wXl" id="53q-xI-U9J"/>
                 <outlet property="dealerwinlose" destination="sQb-wZ-RGz" id="kKe-um-Ecf"/>
-                <outlet property="diceImg1" destination="UkW-28-pHF" id="j0T-Y0-CYZ"/>
-                <outlet property="diceImg2" destination="VJ0-Ub-fpr" id="UKn-Ch-Nu5"/>
-                <outlet property="diceImg3" destination="dxz-dy-xMN" id="MLU-LW-eZB"/>
+                <outlet property="dice1Img1" destination="pvM-e9-1I7" id="sQx-mg-6HA"/>
+                <outlet property="dice1Img2" destination="97x-ru-fSY" id="7Oi-tT-oeD"/>
+                <outlet property="dice1Img3" destination="feY-hO-EtM" id="y8J-P0-3Nj"/>
+                <outlet property="dice2Img1" destination="V9H-Ef-rbn" id="mEk-5U-PCh"/>
+                <outlet property="dice2Img2" destination="AzG-ZS-w7X" id="EyA-wn-Wqc"/>
+                <outlet property="dice2Img3" destination="h1h-NK-jY5" id="D52-np-qbj"/>
+                <outlet property="dice3Img1" destination="l2y-L2-Rpl" id="8T2-78-VIM"/>
+                <outlet property="dice3Img2" destination="ueu-Rg-ufb" id="6su-Fm-UqJ"/>
+                <outlet property="dice3Img3" destination="YVN-5F-m7f" id="daf-vS-GI7"/>
+                <outlet property="dice4Img1" destination="Y5J-6w-Jtu" id="YGd-hQ-8fU"/>
+                <outlet property="dice4Img2" destination="sLd-op-tXJ" id="VeJ-UV-PpE"/>
+                <outlet property="dice4Img3" destination="pth-3B-BSR" id="32f-Iz-Z2m"/>
                 <outlet property="errorView" destination="ak5-Ey-CMj" id="uty-KX-W79"/>
                 <outlet property="gambleView" destination="3sD-rg-TPh" id="MLx-IW-bWR"/>
                 <outlet property="loadingView" destination="9GB-xQ-S8y" id="w8K-bm-AEn"/>
@@ -93,6 +101,10 @@
                 <outlet property="previous3" destination="wIP-H4-CWE" id="FUA-ld-gH7"/>
                 <outlet property="previous4" destination="mmD-8V-RPy" id="V6o-ap-7rZ"/>
                 <outlet property="randomImg" destination="kBc-8V-y57" id="EJF-UP-23J"/>
+                <outlet property="result1View" destination="yRd-un-vVB" id="7jV-pJ-V9D"/>
+                <outlet property="result2View" destination="vlf-Gb-4ds" id="h5U-TJ-cAd"/>
+                <outlet property="result3View" destination="1fO-lM-pQa" id="opa-eh-6sF"/>
+                <outlet property="result4View" destination="S8Y-2J-XBQ" id="pjg-8o-6wI"/>
                 <outlet property="resultView" destination="lRS-AP-WA3" id="dzB-YP-np8"/>
                 <outlet property="resultwinlose1" destination="B5y-Wi-FfD" id="AtN-Th-6Bt"/>
                 <outlet property="resultwinlose2" destination="hAJ-HZ-yla" id="aea-Vi-HfK"/>
@@ -1358,14 +1370,6 @@
                     <rect key="frame" x="190" y="10" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dxz-dy-xMN">
-                    <rect key="frame" x="39" y="298" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UkW-28-pHF">
-                    <rect key="frame" x="100" y="192" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="EHT-BG-Svi">
                     <rect key="frame" x="86" y="10" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1390,10 +1394,6 @@
                         <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="pJA-1O-oSi"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VJ0-Ub-fpr">
-                    <rect key="frame" x="152" y="298" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -1523,6 +1523,90 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <view contentMode="scaleToFill" id="yRd-un-vVB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pvM-e9-1I7">
+                    <rect key="frame" x="46" y="21" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="97x-ru-fSY">
+                    <rect key="frame" x="154" y="21" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="feY-hO-EtM">
+                    <rect key="frame" x="100" y="113" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-382" y="-609"/>
+        </view>
+        <view contentMode="scaleToFill" id="vlf-Gb-4ds">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AzG-ZS-w7X">
+                    <rect key="frame" x="100" y="65" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="V9H-Ef-rbn">
+                    <rect key="frame" x="176" y="18" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h1h-NK-jY5">
+                    <rect key="frame" x="19" y="112" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-382" y="-320"/>
+        </view>
+        <view contentMode="scaleToFill" id="1fO-lM-pQa">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="l2y-L2-Rpl">
+                    <rect key="frame" x="15" y="18" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ueu-Rg-ufb">
+                    <rect key="frame" x="100" y="65" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YVN-5F-m7f">
+                    <rect key="frame" x="180" y="115" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="514" y="-312"/>
+        </view>
+        <view contentMode="scaleToFill" id="S8Y-2J-XBQ">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sLd-op-tXJ">
+                    <rect key="frame" x="46" y="109" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pth-3B-BSR">
+                    <rect key="frame" x="154" y="109" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Y5J-6w-Jtu">
+                    <rect key="frame" x="100" y="16" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-382" y="-911"/>
+        </view>
     </objects>
     <resources>
         <image name="Setting_icon.png" width="20" height="20"/>
@@ -1543,9 +1627,9 @@
         <image name="cup_02.png" width="140" height="55"/>
         <image name="cup_03.png" width="140" height="164"/>
         <image name="dice_1.png" width="261" height="261"/>
-        <image name="loading.png" width="640" height="1136"/>
-        <image name="loading1.png" width="640" height="1136"/>
-        <image name="share.png" width="640" height="1136"/>
+        <image name="loading.png" width="320" height="568"/>
+        <image name="loading1.png" width="320" height="568"/>
+        <image name="share.png" width="320" height="568"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

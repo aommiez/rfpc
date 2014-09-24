@@ -109,10 +109,31 @@
 @property (strong, nonatomic) IBOutlet UIImageView *showdiceImg1;
 @property (strong, nonatomic) IBOutlet UIImageView *showdiceImg2;
 @property (strong, nonatomic) IBOutlet UIImageView *showdiceImg3;
-@property (strong, nonatomic) IBOutlet UIImageView *diceImg1;
-@property (strong, nonatomic) IBOutlet UIImageView *diceImg2;
-@property (strong, nonatomic) IBOutlet UIImageView *diceImg3;
 - (IBAction)resultTapped:(id)sender;
+
+//1
+@property (strong, nonatomic) IBOutlet UIView *result1View;
+@property (strong, nonatomic) IBOutlet UIImageView *dice1Img1;
+@property (strong, nonatomic) IBOutlet UIImageView *dice1Img2;
+@property (strong, nonatomic) IBOutlet UIImageView *dice1Img3;
+
+//2
+@property (strong, nonatomic) IBOutlet UIView *result2View;
+@property (strong, nonatomic) IBOutlet UIImageView *dice2Img1;
+@property (strong, nonatomic) IBOutlet UIImageView *dice2Img2;
+@property (strong, nonatomic) IBOutlet UIImageView *dice2Img3;
+
+//3
+@property (strong, nonatomic) IBOutlet UIView *result3View;
+@property (strong, nonatomic) IBOutlet UIImageView *dice3Img1;
+@property (strong, nonatomic) IBOutlet UIImageView *dice3Img2;
+@property (strong, nonatomic) IBOutlet UIImageView *dice3Img3;
+
+//4
+@property (strong, nonatomic) IBOutlet UIView *result4View;
+@property (strong, nonatomic) IBOutlet UIImageView *dice4Img1;
+@property (strong, nonatomic) IBOutlet UIImageView *dice4Img2;
+@property (strong, nonatomic) IBOutlet UIImageView *dice4Img3;
 
 //button board
 - (IBAction)boardBt1Tapped:(id)sender;

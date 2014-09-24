@@ -2209,63 +2209,170 @@ NSTimer *timmer;
     
     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(closeIn1:) userInfo:nil repeats:NO];
     
+    int number1 = (arc4random()%4)+1;
+    if (number1 == 1) {
+        
+        if (IS_WIDESCREEN) {
+            self.result1View.frame = CGRectMake(0, 200, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        } else {
+            self.result1View.frame = CGRectMake(0, 150, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        }
+        
+        [self.result2View removeFromSuperview];
+        [self.result3View removeFromSuperview];
+        [self.result4View removeFromSuperview];
+        [self.resultView addSubview:self.result1View];
+    } else if (number1 == 2) {
+        self.result2View.frame = CGRectMake(0, 200, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        
+        if (IS_WIDESCREEN) {
+            self.result2View.frame = CGRectMake(0, 200, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        } else {
+            self.result2View.frame = CGRectMake(0, 150, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        }
+        
+        [self.result1View removeFromSuperview];
+        [self.result3View removeFromSuperview];
+        [self.result4View removeFromSuperview];
+        [self.resultView addSubview:self.result2View];
+    } else if (number1 == 3) {
+        
+        if (IS_WIDESCREEN) {
+            self.result3View.frame = CGRectMake(0, 200, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        } else {
+            self.result3View.frame = CGRectMake(0, 150, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        }
+        
+        [self.result1View removeFromSuperview];
+        [self.result2View removeFromSuperview];
+        [self.result4View removeFromSuperview];
+        [self.resultView addSubview:self.result3View];
+    } else if (number1 == 4) {
+        
+        if (IS_WIDESCREEN) {
+            self.result4View.frame = CGRectMake(0, 200, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        } else {
+            self.result4View.frame = CGRectMake(0, 150, self.result1View.frame.size.width, self.result1View.frame.size.height);
+        }
+        
+        [self.result1View removeFromSuperview];
+        [self.result2View removeFromSuperview];
+        [self.result3View removeFromSuperview];
+        [self.resultView addSubview:self.result4View];
+    }
+
+    
     if ([self.dice1 isEqualToString:@"1"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_1.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice1 isEqualToString:@"2"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_2.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice1 isEqualToString:@"3"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_3.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice1 isEqualToString:@"4"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_4.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice1 isEqualToString:@"5"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_5.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice1 isEqualToString:@"6"]) {
-        self.diceImg1.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice1Img1.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice2Img1.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice3Img1.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice4Img1.image = [UIImage imageNamed:@"dice_6.png"];
         self.showdiceImg1.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     if ([self.dice2 isEqualToString:@"1"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_1.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice2 isEqualToString:@"2"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_2.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice2 isEqualToString:@"3"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_3.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice2 isEqualToString:@"4"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_4.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice2 isEqualToString:@"5"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_5.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice2 isEqualToString:@"6"]) {
-        self.diceImg2.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice1Img2.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice2Img2.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice3Img2.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice4Img2.image = [UIImage imageNamed:@"dice_6.png"];
         self.showdiceImg2.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
     if ([self.dice3 isEqualToString:@"1"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_1.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_1.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_1.png"];
     } else if ([self.dice3 isEqualToString:@"2"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_2.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_2.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_2.png"];
     } else if ([self.dice3 isEqualToString:@"3"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_3.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_3.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_3.png"];
     } else if ([self.dice3 isEqualToString:@"4"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_4.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_4.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_4.png"];
     } else if ([self.dice3 isEqualToString:@"5"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_5.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_5.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_5.png"];
     } else if ([self.dice3 isEqualToString:@"6"]) {
-        self.diceImg3.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice1Img3.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice2Img3.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice3Img3.image = [UIImage imageNamed:@"dice_6.png"];
+        self.dice4Img3.image = [UIImage imageNamed:@"dice_6.png"];
         self.showdiceImg3.image = [UIImage imageNamed:@"show_dice_6.png"];
     }
     
