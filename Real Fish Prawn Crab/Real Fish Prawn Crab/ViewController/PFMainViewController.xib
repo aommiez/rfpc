@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -72,9 +73,9 @@
                 <outlet property="dealerbalance" destination="yo2-2G-F8q" id="gga-kq-wYX"/>
                 <outlet property="dealerbalance1" destination="sh0-xG-wXl" id="53q-xI-U9J"/>
                 <outlet property="dealerwinlose" destination="sQb-wZ-RGz" id="kKe-um-Ecf"/>
-                <outlet property="dice1Img1" destination="2Pv-Qq-eaq" id="C2h-aa-cNm"/>
-                <outlet property="dice1Img2" destination="QLj-bM-oaA" id="LCw-q3-Orr"/>
-                <outlet property="dice1Img3" destination="tvE-28-gZS" id="Te4-ID-UPX"/>
+                <outlet property="dice1Img1" destination="tZb-4m-nfR" id="63f-A7-ajV"/>
+                <outlet property="dice1Img2" destination="8WX-fp-nq9" id="mGm-S9-a56"/>
+                <outlet property="dice1Img3" destination="gXh-JU-svF" id="5ce-ld-RRi"/>
                 <outlet property="dice2Img1" destination="Gal-Fy-UoX" id="4cd-L0-Evp"/>
                 <outlet property="dice2Img2" destination="9nE-vu-GGy" id="kDE-N0-9zx"/>
                 <outlet property="dice2Img3" destination="fQ1-Go-3qW" id="G3C-A8-4t7"/>
@@ -84,9 +85,6 @@
                 <outlet property="dice4Img1" destination="2Pv-Qq-eaq" id="qU3-9B-wBE"/>
                 <outlet property="dice4Img2" destination="QLj-bM-oaA" id="HFh-Gj-TdU"/>
                 <outlet property="dice4Img3" destination="tvE-28-gZS" id="8OR-13-X5T"/>
-                <outlet property="diceImg1" destination="gXh-JU-svF" id="ByR-yQ-hcx"/>
-                <outlet property="diceImg2" destination="tZb-4m-nfR" id="R9s-pl-Mqa"/>
-                <outlet property="diceImg3" destination="8WX-fp-nq9" id="Ibf-mr-Joc"/>
                 <outlet property="errorView" destination="ak5-Ey-CMj" id="uty-KX-W79"/>
                 <outlet property="gambleView" destination="3sD-rg-TPh" id="MLx-IW-bWR"/>
                 <outlet property="loadingView" destination="9GB-xQ-S8y" id="w8K-bm-AEn"/>
@@ -1353,20 +1351,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hJA-hK-euc">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="oiQ-8o-dbk"/>
-                    </connections>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-dish.png" id="SH8-zX-K69">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hPC-iq-Oyk">
                     <rect key="frame" x="138" y="10" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1399,6 +1383,10 @@
                         <action selector="shareTapped:" destination="-1" eventType="touchUpInside" id="pJA-1O-oSi"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-dish.png" id="SH8-zX-K69">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -1534,6 +1522,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H49-A5-Qel">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="9Bq-7c-wEd"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tZb-4m-nfR">
                     <rect key="frame" x="46" y="21" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1563,6 +1561,16 @@
                     <rect key="frame" x="176" y="18" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ulg-es-pI6">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="yR1-9c-0Ok"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fQ1-Go-3qW">
                     <rect key="frame" x="19" y="112" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1576,6 +1584,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fFX-r7-ooW">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="H9L-xj-GmR"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jRo-dH-O08">
                     <rect key="frame" x="15" y="18" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1597,6 +1615,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sne-UR-0Uv">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="Doy-5f-cXS"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QLj-bM-oaA">
                     <rect key="frame" x="46" y="109" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
