@@ -30,7 +30,6 @@
 		5211A2E719D18F07009CD3A5 /* Zoomout.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5211A2E619D18F07009CD3A5 /* Zoomout.mov */; };
 		5211A2E919D1BE9F009CD3A5 /* setting_unmute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5211A2E819D1BE9F009CD3A5 /* setting_unmute.png */; };
 		5211A2EB19D1BED2009CD3A5 /* setting_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5211A2EA19D1BED2009CD3A5 /* setting_mute.png */; };
-		5211A2ED19D1EA33009CD3A5 /* PFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5211A2EC19D1EA33009CD3A5 /* PFMainViewController.xib */; };
 		5218130819C9263B005A7D71 /* bg_board.png in Resources */ = {isa = PBXBuildFile; fileRef = 5218130719C9263B005A7D71 /* bg_board.png */; };
 		521B08B719D0B19800E279AF /* circle_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 521B08B219D0B19800E279AF /* circle_01.png */; };
 		521B08B819D0B19800E279AF /* circle_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 521B08B319D0B19800E279AF /* circle_02.png */; };
@@ -151,7 +150,6 @@
 		5211A2E619D18F07009CD3A5 /* Zoomout.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Zoomout.mov; sourceTree = "<group>"; };
 		5211A2E819D1BE9F009CD3A5 /* setting_unmute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_unmute.png; sourceTree = "<group>"; };
 		5211A2EA19D1BED2009CD3A5 /* setting_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_mute.png; sourceTree = "<group>"; };
-		5211A2EC19D1EA33009CD3A5 /* PFMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMainViewController.xib; sourceTree = "<group>"; };
 		5218130719C9263B005A7D71 /* bg_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_board.png; sourceTree = "<group>"; };
 		521B08B219D0B19800E279AF /* circle_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_01.png; sourceTree = "<group>"; };
 		521B08B319D0B19800E279AF /* circle_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_02.png; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				5220029119C8797000B44480 /* PFMainViewController.h */,
 				5220029219C8797000B44480 /* PFMainViewController.m */,
 				5220029319C8797000B44480 /* PFMainViewController_Wide.xib */,
-				5211A2EC19D1EA33009CD3A5 /* PFMainViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -686,7 +683,6 @@
 				5286E24D19C9EEC8001668E2 /* borad_5.png in Resources */,
 				522002E619C89F0300B44480 /* yellow_coin_01.png in Resources */,
 				5286E24E19C9EEC8001668E2 /* borad_6.png in Resources */,
-				5211A2ED19D1EA33009CD3A5 /* PFMainViewController.xib in Resources */,
 				5286E23C19C9E392001668E2 /* dice_6.png in Resources */,
 				52DAACCE19D04FA8006B9060 /* show_dice_6.png in Resources */,
 				520B966519D14F030049DB07 /* playerData2.png in Resources */,
@@ -797,7 +793,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -815,6 +811,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4f175bdc-4f28-4625-a036-7207c2247211";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -836,7 +833,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Platwofusion Co.,Ltd. (Q246MJM9JV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Platwofusion Co.,Ltd. (Q246MJM9JV)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -847,6 +845,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "4f175bdc-4f28-4625-a036-7207c2247211";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -858,12 +857,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
 				INFOPLIST_FILE = "Real Fish Prawn Crab/Real Fish Prawn Crab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff599275-cb79-4df2-961c-febd8251bee4";
+				PROVISIONING_PROFILE = "4f175bdc-4f28-4625-a036-7207c2247211";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -874,13 +874,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Platwofusion Co.,Ltd. (Q246MJM9JV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Platwofusion Co.,Ltd. (Q246MJM9JV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Real Fish Prawn Crab/Real Fish Prawn Crab-Prefix.pch";
 				INFOPLIST_FILE = "Real Fish Prawn Crab/Real Fish Prawn Crab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff599275-cb79-4df2-961c-febd8251bee4";
+				PROVISIONING_PROFILE = "4f175bdc-4f28-4625-a036-7207c2247211";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
