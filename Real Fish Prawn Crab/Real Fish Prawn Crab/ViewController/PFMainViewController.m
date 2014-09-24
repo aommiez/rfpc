@@ -50,9 +50,9 @@ NSTimer *timmer;
                   [error localizedDescription]);
         } else {
             self.audioPlayer.delegate = self;
-            [self.audioPlayer prepareToPlay];
+            self.audioPlayer.numberOfLoops = -1;
         }
-        
+
         [self.audioPlayer setVolume: 1.0];
         [self.audioPlayer play];
     }
@@ -369,7 +369,11 @@ NSTimer *timmer;
     
     self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
                                                                       fileURLWithPath:videoPath]];
-    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+        if (IS_WIDESCREEN) {
+            self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+        } else {
+            self.videoController.view.frame = CGRectMake(0, 0, 320, 480);
+        }
     self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
     [self.view addSubview:self.videoController.view];
     
@@ -426,7 +430,11 @@ NSTimer *timmer;
         
         self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
                                                                                         fileURLWithPath:videoPath]];
-        self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+        if (IS_WIDESCREEN) {
+            self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+        } else {
+            self.videoController.view.frame = CGRectMake(0, 0, 320, 480);
+        }
         self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
         [self.view addSubview:self.videoController.view];
         
@@ -490,12 +498,6 @@ NSTimer *timmer;
         
     } else {
         [self.view addSubview:self.errorView];
-        
-//        [[[UIAlertView alloc] initWithTitle:nil
-//                                    message:@"Please shake again."
-//                                   delegate:nil
-//                          cancelButtonTitle:@"OK"
-//                          otherButtonTitles:nil] show];
     }
 }
 
@@ -2197,7 +2199,11 @@ NSTimer *timmer;
     
     self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
                                                                                     fileURLWithPath:videoPath]];
-    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    if (IS_WIDESCREEN) {
+        self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    } else {
+        self.videoController.view.frame = CGRectMake(0, 0, 320, 480);
+    }
     self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
     [self.view addSubview:self.videoController.view];
     
@@ -2291,7 +2297,11 @@ NSTimer *timmer;
     
     self.videoController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL
                                                                                     fileURLWithPath:videoPath]];
-    self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    if (IS_WIDESCREEN) {
+        self.videoController.view.frame = CGRectMake(0, 0, 320, 568);
+    } else {
+        self.videoController.view.frame = CGRectMake(0, 0, 320, 480);
+    }
     self.videoController.moviePlayer.controlStyle = MPMovieControlStyleNone;
     [self.view addSubview:self.videoController.view];
     
@@ -3072,9 +3082,17 @@ NSTimer *timmer;
     [self.view addSubview:self.settingView];
     
     if (![self.checkmute isEqualToString:@"mute"]) {
-        self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+        if (IS_WIDESCREEN) {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+        } else {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmuteiP4.png"];
+        }
     } else {
-        self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+        if (IS_WIDESCREEN) {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+        } else {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_muteiP4.png"];
+        }
     }
     
     if ([[self.SaveData objectForKey:@"dealerbalance"] intValue] != 0) {
@@ -3114,11 +3132,19 @@ NSTimer *timmer;
 
 - (IBAction)settingMuteTapped:(id)sender {
     if (![self.checkmute isEqualToString:@"mute"]) {
-        self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+        if (IS_WIDESCREEN) {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_mute.png"];
+        } else {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_muteiP4.png"];
+        }
         self.checkmute = @"mute";
         [self.audioPlayer stop];
     } else {
-        self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+        if (IS_WIDESCREEN) {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmute.png"];
+        } else {
+            self.bgSettingImg.image = [UIImage imageNamed:@"setting_unmuteiP4.png"];
+        }
         self.checkmute = @"unmute";
         [self.audioPlayer play];
     }
