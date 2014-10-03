@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -46,7 +45,6 @@
                 <outlet property="boardImg4" destination="n6t-1F-2qT" id="Bw5-bG-nrg"/>
                 <outlet property="boardImg5" destination="q3M-xK-RVM" id="Wnb-JL-CA3"/>
                 <outlet property="boardImg6" destination="1ku-Lt-6ex" id="kxR-PD-V6U"/>
-                <outlet property="border1" destination="HvC-st-lCk" id="cTK-OP-jPl"/>
                 <outlet property="border2" destination="GVf-Hm-FIF" id="k9a-mK-ecq"/>
                 <outlet property="border3" destination="uAt-F7-mOw" id="FUg-ZU-7W2"/>
                 <outlet property="border4" destination="1tt-PQ-UPh" id="ZTO-xR-c92"/>
@@ -73,18 +71,18 @@
                 <outlet property="dealerbalance" destination="yo2-2G-F8q" id="gga-kq-wYX"/>
                 <outlet property="dealerbalance1" destination="sh0-xG-wXl" id="53q-xI-U9J"/>
                 <outlet property="dealerwinlose" destination="sQb-wZ-RGz" id="kKe-um-Ecf"/>
-                <outlet property="dice1Img1" destination="tZb-4m-nfR" id="63f-A7-ajV"/>
-                <outlet property="dice1Img2" destination="8WX-fp-nq9" id="mGm-S9-a56"/>
-                <outlet property="dice1Img3" destination="gXh-JU-svF" id="5ce-ld-RRi"/>
-                <outlet property="dice2Img1" destination="Gal-Fy-UoX" id="4cd-L0-Evp"/>
-                <outlet property="dice2Img2" destination="9nE-vu-GGy" id="kDE-N0-9zx"/>
-                <outlet property="dice2Img3" destination="fQ1-Go-3qW" id="G3C-A8-4t7"/>
-                <outlet property="dice3Img1" destination="jRo-dH-O08" id="HcZ-ME-qp0"/>
-                <outlet property="dice3Img2" destination="7hy-qM-c3z" id="XND-FS-Y2R"/>
-                <outlet property="dice3Img3" destination="f2u-Bo-YRf" id="GWB-ZP-WWx"/>
-                <outlet property="dice4Img1" destination="2Pv-Qq-eaq" id="qU3-9B-wBE"/>
-                <outlet property="dice4Img2" destination="QLj-bM-oaA" id="HFh-Gj-TdU"/>
-                <outlet property="dice4Img3" destination="tvE-28-gZS" id="8OR-13-X5T"/>
+                <outlet property="dice1Img1" destination="Yk0-Ll-iKs" id="mwJ-FF-RN6"/>
+                <outlet property="dice1Img2" destination="su3-q9-mbc" id="vBn-pb-gj9"/>
+                <outlet property="dice1Img3" destination="PZw-MM-Ndg" id="5aS-Go-HU3"/>
+                <outlet property="dice2Img1" destination="D3S-5W-gWX" id="lIe-6i-mTd"/>
+                <outlet property="dice2Img2" destination="WT5-O5-X3k" id="714-k9-GEC"/>
+                <outlet property="dice2Img3" destination="pXY-2x-kKZ" id="KjA-2x-bZC"/>
+                <outlet property="dice3Img1" destination="Cwy-M5-7Ub" id="fWx-fc-Crd"/>
+                <outlet property="dice3Img2" destination="vaP-cI-b1x" id="LKp-PR-aHG"/>
+                <outlet property="dice3Img3" destination="do1-AC-dL5" id="NPB-4N-gLv"/>
+                <outlet property="dice4Img1" destination="VBy-rg-UdL" id="3z4-Vj-Sor"/>
+                <outlet property="dice4Img2" destination="qxW-OJ-dXw" id="EfP-dl-mOF"/>
+                <outlet property="dice4Img3" destination="F3O-PI-4Kh" id="q5X-7o-nW0"/>
                 <outlet property="errorView" destination="ak5-Ey-CMj" id="uty-KX-W79"/>
                 <outlet property="gambleView" destination="3sD-rg-TPh" id="MLx-IW-bWR"/>
                 <outlet property="loadingView" destination="9GB-xQ-S8y" id="w8K-bm-AEn"/>
@@ -102,10 +100,10 @@
                 <outlet property="previous3" destination="wIP-H4-CWE" id="FUA-ld-gH7"/>
                 <outlet property="previous4" destination="mmD-8V-RPy" id="V6o-ap-7rZ"/>
                 <outlet property="randomImg" destination="kBc-8V-y57" id="EJF-UP-23J"/>
-                <outlet property="result1View" destination="q4B-GJ-GVL" id="bza-3X-byv"/>
-                <outlet property="result2View" destination="d0E-PB-bfO" id="8LX-24-4vk"/>
-                <outlet property="result3View" destination="fib-hl-1aK" id="PfQ-XV-WSe"/>
-                <outlet property="result4View" destination="gdp-0l-pzq" id="CDs-Js-puv"/>
+                <outlet property="result1View" destination="yLL-R9-7Bs" id="fTc-9i-ZKX"/>
+                <outlet property="result2View" destination="IBY-em-mTO" id="FZb-NT-gqg"/>
+                <outlet property="result3View" destination="6QY-zQ-ORC" id="Ojg-zq-wSb"/>
+                <outlet property="result4View" destination="l34-oX-2L5" id="2PF-sv-RUA"/>
                 <outlet property="resultView" destination="lRS-AP-WA3" id="dzB-YP-np8"/>
                 <outlet property="resultwinlose1" destination="B5y-Wi-FfD" id="AtN-Th-6Bt"/>
                 <outlet property="resultwinlose2" destination="hAJ-HZ-yla" id="aea-Vi-HfK"/>
@@ -509,6 +507,16 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OuU-C6-Oj1">
+                    <rect key="frame" x="56" y="53" width="53" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="diceTapped:" destination="-1" eventType="touchUpInside" id="58q-1v-Zc5"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d6e-fC-3j0">
                     <rect key="frame" x="118" y="80" width="84" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1392,6 +1400,29 @@
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <view contentMode="scaleToFill" id="SFE-Yr-Xgf">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareiP4.png" id="Mft-Kb-ma4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WkT-RV-uFo">
+                    <rect key="frame" x="20" y="435" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareDoneTapped:" destination="-1" eventType="touchUpInside" id="Wma-4L-b73"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="661" y="528"/>
+        </view>
         <view contentMode="scaleToFill" id="FHm-ea-BEc">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1495,84 +1526,55 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="376" y="487"/>
         </view>
-        <view contentMode="scaleToFill" id="SFE-Yr-Xgf">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareiP4.png" id="Mft-Kb-ma4">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WkT-RV-uFo">
-                    <rect key="frame" x="20" y="435" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="shareDoneTapped:" destination="-1" eventType="touchUpInside" id="Wma-4L-b73"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="661" y="528"/>
-        </view>
-        <view contentMode="scaleToFill" id="q4B-GJ-GVL">
+        <view contentMode="scaleToFill" id="yLL-R9-7Bs">
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H49-A5-Qel">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z6y-eV-p8k">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="9Bq-7c-wEd"/>
-                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tZb-4m-nfR">
-                    <rect key="frame" x="46" y="21" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Yk0-Ll-iKs">
+                    <rect key="frame" x="38" y="29" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8WX-fp-nq9">
-                    <rect key="frame" x="154" y="21" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="su3-q9-mbc">
+                    <rect key="frame" x="154" y="29" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gXh-JU-svF">
-                    <rect key="frame" x="100" y="113" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PZw-MM-Ndg">
+                    <rect key="frame" x="92" y="113" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="519" y="-474"/>
+            <point key="canvasLocation" x="-625" y="-566"/>
         </view>
-        <view contentMode="scaleToFill" id="d0E-PB-bfO">
+        <view contentMode="scaleToFill" id="IBY-em-mTO">
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9nE-vu-GGy">
-                    <rect key="frame" x="100" y="65" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Gal-Fy-UoX">
-                    <rect key="frame" x="176" y="18" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ulg-es-pI6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uLN-pi-SYp">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="yR1-9c-0Ok"/>
-                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fQ1-Go-3qW">
-                    <rect key="frame" x="19" y="112" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="D3S-5W-gWX">
+                    <rect key="frame" x="166" y="22" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WT5-O5-X3k">
+                    <rect key="frame" x="93" y="70" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pXY-2x-kKZ">
+                    <rect key="frame" x="17" y="115" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -1580,61 +1582,55 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-382" y="-320"/>
         </view>
-        <view contentMode="scaleToFill" id="fib-hl-1aK">
+        <view contentMode="scaleToFill" id="6QY-zQ-ORC">
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fFX-r7-ooW">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TG2-Hb-dS0">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="H9L-xj-GmR"/>
-                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jRo-dH-O08">
-                    <rect key="frame" x="15" y="18" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Cwy-M5-7Ub">
+                    <rect key="frame" x="27" y="10" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7hy-qM-c3z">
-                    <rect key="frame" x="100" y="65" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vaP-cI-b1x">
+                    <rect key="frame" x="99" y="62" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f2u-Bo-YRf">
-                    <rect key="frame" x="180" y="115" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="do1-AC-dL5">
+                    <rect key="frame" x="171" y="121" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-382" y="-21"/>
+            <point key="canvasLocation" x="514" y="-312"/>
         </view>
-        <view contentMode="scaleToFill" id="gdp-0l-pzq">
+        <view contentMode="scaleToFill" id="l34-oX-2L5">
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sne-UR-0Uv">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2hD-Hj-vaT">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="resultTapped:" destination="-1" eventType="touchUpInside" id="Doy-5f-cXS"/>
-                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QLj-bM-oaA">
-                    <rect key="frame" x="46" y="109" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VBy-rg-UdL">
+                    <rect key="frame" x="100" y="18" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tvE-28-gZS">
-                    <rect key="frame" x="154" y="109" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qxW-OJ-dXw">
+                    <rect key="frame" x="36" y="101" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2Pv-Qq-eaq">
-                    <rect key="frame" x="100" y="16" width="120" height="120"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="F3O-PI-4Kh">
+                    <rect key="frame" x="158" y="107" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -1661,7 +1657,7 @@
         <image name="cup_01.png" width="140" height="168"/>
         <image name="cup_02.png" width="140" height="55"/>
         <image name="cup_03.png" width="140" height="164"/>
-        <image name="dice_1.png" width="261" height="261"/>
+        <image name="dice_1.png" width="260" height="279"/>
         <image name="loading1iP4.png" width="640" height="960"/>
         <image name="loadingiP4.png" width="640" height="960"/>
         <image name="shareiP4.png" width="640" height="960"/>

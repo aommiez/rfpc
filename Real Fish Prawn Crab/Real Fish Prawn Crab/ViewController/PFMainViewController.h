@@ -96,6 +96,7 @@
 
 //เขย่า
 @property (strong, nonatomic) IBOutlet UIView *shakeView;
+- (IBAction)buttonshakeTapped:(id)sender;
 - (IBAction)closeshakeTapped:(id)sender;
 
 @property (strong, nonatomic) IBOutlet NSString *checkshake;

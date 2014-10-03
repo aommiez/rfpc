@@ -172,6 +172,9 @@ NSTimer *timmer;
     self.resultwinlose3.text = @"";
     self.resultwinlose4.text = @"";
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fullimage:)];
+    [self.randomImg addGestureRecognizer:singleTap];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -345,6 +348,169 @@ NSTimer *timmer;
             }
         }
     }
+}
+
+//buttom shake
+- (IBAction)buttonshakeTapped:(id)sender {
+    
+    if ([self.checkaudio isEqualToString:@"on"]) {
+        //audio
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                             pathForResource:@"DiceSoundEffect"
+                                             ofType:@"mp3"]];
+        
+        NSError *error;
+        self.audioshakePlayer = [[AVAudioPlayer alloc]
+                                 initWithContentsOfURL:url
+                                 error:&error];
+        if (error)
+        {
+            NSLog(@"Error in audioPlayer: %@",
+                  [error localizedDescription]);
+        } else {
+            self.audioshakePlayer.delegate = self;
+            [self.audioshakePlayer prepareToPlay];
+        }
+        [self.audioPlayer setVolume: 0.6];
+        [self.audioshakePlayer play];
+    }
+    
+    [self.errorView removeFromSuperview];
+    
+    //ramdom image
+    
+    self.randomImg.animationImages = [NSArray arrayWithObjects:
+                                      [UIImage imageNamed:@"circle_01.png"],
+                                      [UIImage imageNamed:@"circle_02.png"],
+                                      [UIImage imageNamed:@"circle_03.png"],
+                                      [UIImage imageNamed:@"circle_04.png"],
+                                      [UIImage imageNamed:@"circle_05.png"],
+                                      [UIImage imageNamed:@"circle_01.png"],
+                                      [UIImage imageNamed:@"circle_02.png"],
+                                      [UIImage imageNamed:@"circle_03.png"],
+                                      [UIImage imageNamed:@"circle_04.png"],
+                                      [UIImage imageNamed:@"circle_05.png"],
+                                      [UIImage imageNamed:@"circle_01.png"],
+                                      [UIImage imageNamed:@"circle_02.png"],
+                                      [UIImage imageNamed:@"circle_03.png"],
+                                      [UIImage imageNamed:@"circle_04.png"],
+                                      [UIImage imageNamed:@"circle_05.png"],
+                                      [UIImage imageNamed:@"circle_01.png"],
+                                      [UIImage imageNamed:@"circle_02.png"],
+                                      [UIImage imageNamed:@"circle_03.png"],
+                                      [UIImage imageNamed:@"circle_04.png"],
+                                      [UIImage imageNamed:@"circle_05.png"],
+                                      [UIImage imageNamed:@"circle_01.png"],
+                                      [UIImage imageNamed:@"circle_02.png"],
+                                      [UIImage imageNamed:@"circle_03.png"],
+                                      [UIImage imageNamed:@"circle_04.png"],
+                                      [UIImage imageNamed:@"circle_05.png"],nil];
+    
+    
+    self.randomImg.animationDuration = 2.0;
+    self.randomImg.animationRepeatCount = 1;
+    [self.randomImg startAnimating];
+    
+    if ([self.checkshake isEqualToString:@"1"]) {
+        
+        if (self.checkLog.length == 0) {
+            int number1 = (arc4random()%6)+1; //Generates Number from 1 to 100.
+            NSString *string1 = [NSString stringWithFormat:@"%i", number1];
+            self.dice1 = string1;
+            
+            int number2 = (arc4random()%6)+1; //Generates Number from 1 to 100.
+            NSString *string2 = [NSString stringWithFormat:@"%i", number2];
+            self.dice2 = string2;
+            
+            int number3 = (arc4random()%6)+1; //Generates Number from 1 to 100.
+            NSString *string3 = [NSString stringWithFormat:@"%i", number3];
+            self.dice3 = string3;
+            
+            self.checkshake = @"shake";
+            
+            self.boardImg1.image = [UIImage imageNamed:@"borad_1.png"];
+            self.boardImg2.image = [UIImage imageNamed:@"borad_2.png"];
+            self.boardImg3.image = [UIImage imageNamed:@"borad_3.png"];
+            self.boardImg4.image = [UIImage imageNamed:@"borad_4.png"];
+            self.boardImg5.image = [UIImage imageNamed:@"borad_5.png"];
+            self.boardImg6.image = [UIImage imageNamed:@"borad_6.png"];
+            
+        } else {
+            
+            if ([self.checkLog isEqualToString:@"1"]) {
+                self.dice1 = @"2"; self.dice2 = @"3"; self.dice3 = @"4";
+                self.checkLog = @"2";
+            } else if ([self.checkLog isEqualToString:@"2"]) {
+                self.dice1 = @"3"; self.dice2 = @"6"; self.dice3 = @"1";
+                self.checkLog = @"3";
+            } else if ([self.checkLog isEqualToString:@"3"]) {
+                self.dice1 = @"1"; self.dice2 = @"1"; self.dice3 = @"6";
+                self.checkLog = @"4";
+            } else if ([self.checkLog isEqualToString:@"4"]) {
+                self.dice1 = @"6"; self.dice2 = @"5"; self.dice3 = @"4";
+                self.checkLog = @"5";
+            } else if ([self.checkLog isEqualToString:@"5"]) {
+                self.dice1 = @"4"; self.dice2 = @"1"; self.dice3 = @"5";
+                self.checkLog = @"6";
+            } else if ([self.checkLog isEqualToString:@"6"]) {
+                self.dice1 = @"5"; self.dice2 = @"5"; self.dice3 = @"6";
+                self.checkLog = @"7";
+            } else if ([self.checkLog isEqualToString:@"7"]) {
+                self.dice1 = @"2"; self.dice2 = @"1"; self.dice3 = @"5";
+                self.checkLog = @"8";
+            } else if ([self.checkLog isEqualToString:@"8"]) {
+                self.dice1 = @"6"; self.dice2 = @"6"; self.dice3 = @"5";
+                self.checkLog = @"9";
+            } else if ([self.checkLog isEqualToString:@"9"]) {
+                self.dice1 = @"2"; self.dice2 = @"2"; self.dice3 = @"3";
+                self.checkLog = @"10";
+            } else if ([self.checkLog isEqualToString:@"10"]) {
+                self.dice1 = @"1"; self.dice2 = @"2"; self.dice3 = @"6";
+                self.checkLog = @"11";
+            } else if ([self.checkLog isEqualToString:@"11"]) {
+                self.dice1 = @"4"; self.dice2 = @"5"; self.dice3 = @"1";
+                self.checkLog = @"12";
+            } else if ([self.checkLog isEqualToString:@"12"]) {
+                self.dice1 = @"1"; self.dice2 = @"1"; self.dice3 = @"2";
+                self.checkLog = @"13";
+            } else if ([self.checkLog isEqualToString:@"13"]) {
+                self.dice1 = @"6"; self.dice2 = @"3"; self.dice3 = @"5";
+                self.checkLog = @"14";
+            } else if ([self.checkLog isEqualToString:@"14"]) {
+                self.dice1 = @"3"; self.dice2 = @"3"; self.dice3 = @"1";
+                self.checkLog = @"15";
+            } else if ([self.checkLog isEqualToString:@"15"]) {
+                self.dice1 = @"6"; self.dice2 = @"6"; self.dice3 = @"2";
+                self.checkLog = @"16";
+            } else if ([self.checkLog isEqualToString:@"16"]) {
+                self.dice1 = @"5"; self.dice2 = @"4"; self.dice3 = @"6";
+                self.checkLog = @"17";
+            } else if ([self.checkLog isEqualToString:@"17"]) {
+                self.dice1 = @"3"; self.dice2 = @"6"; self.dice3 = @"5";
+                self.checkLog = @"18";
+            } else if ([self.checkLog isEqualToString:@"18"]) {
+                self.dice1 = @"2"; self.dice2 = @"2"; self.dice3 = @"3";
+                self.checkLog = @"19";
+            } else if ([self.checkLog isEqualToString:@"19"]) {
+                self.dice1 = @"4"; self.dice2 = @"6"; self.dice3 = @"3";
+                self.checkLog = @"20";
+            } else if ([self.checkLog isEqualToString:@"20"]) {
+                self.dice1 = @"3"; self.dice2 = @"3"; self.dice3 = @"1";
+                self.checkLog = @"1";
+            }
+            
+            self.checkshake = @"shake";
+            
+            self.boardImg1.image = [UIImage imageNamed:@"borad_1.png"];
+            self.boardImg2.image = [UIImage imageNamed:@"borad_2.png"];
+            self.boardImg3.image = [UIImage imageNamed:@"borad_3.png"];
+            self.boardImg4.image = [UIImage imageNamed:@"borad_4.png"];
+            self.boardImg5.image = [UIImage imageNamed:@"borad_5.png"];
+            self.boardImg6.image = [UIImage imageNamed:@"borad_6.png"];
+            
+        }
+    }
+
 }
 
 //mainView
